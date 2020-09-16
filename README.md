@@ -21,7 +21,7 @@ hierarchical reinforcement learning formulation:
   highest layer: only process latent variables from lower layer without providing latent variables.
   
   hierarchical policy gradient:
-    central self-critic: similar to self-critic baseline and the roll-out baseline in attention model
+    central self-critic: > similar to self-critic baseline and the roll-out baseline in attention model
   
 graph pointer network:
   pointer network(2017) + graph embedding layers; 
@@ -36,6 +36,11 @@ graph pointer network:
   performance: 
   GPN:the trained model could be well-generalized to large-scale graphs (up to 1000 nodes) when trained on small-scale graphs within less running time; the graph embedding is proved to be useful since the it outperforms the pointer network, but still inferior to graph attention model; the local search algorithm 2-opt is applied to improve the performance in large-scale setting.
   two-layer heirarchical GPN: add penalty of leaving beyond time constrains to the loss function of lower layer; total time cost as loss function in higher layer plus penalty defined in previous; outperforms all other baselines including OR-tools by Google and heuristic ant colony optimization algorithm.
+  
+### Reinforcement Learning for Solving the Vehicle Routing Problem
+Mohammadreza Nazari et al. 2018. NIPS, (VRP)
+> Policy model consists of a recurrent neural network decoder coupled with an attention mechanism: directly use the embedded output instead of the RNN hidden status.
+
 ## GNN:
 ### 
 
