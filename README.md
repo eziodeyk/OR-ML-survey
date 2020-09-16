@@ -21,9 +21,9 @@ hierarchical reinforcement learning formulation:
   highest layer: only process latent variables from lower layer without providing latent variables.
   
   hierarchical policy gradient:
-    central self-critic: 
+    **central self-critic** 
 ```
-**similar to self-critic baseline and the roll-out baseline in attention model**
+similar to self-critic baseline and the roll-out baseline in attention model
 ```
   
 graph pointer network:
