@@ -1,7 +1,7 @@
 # OR-ML-survey
 > to be noted
->>  ***quoted from the original resources*** 
->>  **to emphasis**
+>>  ***quoted from the original resources***. 
+>>  **to emphasis**. 
 >> > original context
 # End-to-end model:
 
