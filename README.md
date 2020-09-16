@@ -22,7 +22,9 @@ hierarchical reinforcement learning formulation:
   
   hierarchical policy gradient:
     central self-critic: 
-    > similar to self-critic baseline and the roll-out baseline in attention model
+    '''
+    *similar to self-critic baseline and the roll-out baseline in attention model*
+    '''
   
 graph pointer network:
   pointer network(2017) + graph embedding layers; 
