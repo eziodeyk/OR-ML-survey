@@ -42,7 +42,9 @@ graph pointer network:
   
 ### Reinforcement Learning for Solving the Vehicle Routing Problem
 Mohammadreza Nazari et al. 2018. NIPS, (VRP)
-> **Policy model** consists of a recurrent neural network decoder coupled with an attention mechanism: directly use the embedded output instead of the RNN hidden status.
+> **Policy model** consists of a recurrent neural network decoder coupled with an attention mechanism 
+directly use the embedded output instead of the RNN hidden status.
+**RNN structure**: since there is no meaning in the order of inputs, the hidden variables is useless in the context of combinatorial optimization. A change in the input may lead to extra cost on conputation for updating. The model consists of two components: the first is ***a set of graph embeddings***, which is in form of 1-layer GCN, but it simply ***utilize the local information of each node, without incorporating adjacency information***
 
 ## GNN:
 ### 
