@@ -67,9 +67,16 @@ Wouter Kool et al. 2019 ICLR, (TSP, two variants of VRP), transformer architectu
 **Encoder**: a framework similiar to Vaswani et al. (2017) ***"attention is all your need"***
 **Attention**: the model could be reasonably considered as a Graph Attention Network
 The embeddings are updated with a series of attention layers in form of two sublayers for each, and aggregated by mean as the graph embedding. Both node embedding and graph embedding are proceeded to the decoder as input.  
-The two sublayers of the attention layer are namely multi-head attention layer (managing message passing between the nodes) and a node-wise fully connected feed-forward layer, in addition with a skip-connection and batch normalization with ReLu activation.
-**Decoder**
-A single-head attention mechanism sequentially generates the final probabilities at timestep t from in to n based on the output of encoder and two ending output of the current partial solution. A special architecture called **context embedding** is designed in this model to represent the docoding context.
+The two sublayers of the attention layer are namely multi-head attention layer (managing message passing between the nodes) and a node-wise fully connected feed-forward layer, in addition with a skip-connection and batch normalization with ReLu activation.  
+**Decoder**: A single-head attention mechanism sequentially generates the final probabilities at timestep t from in to n based on the output of encoder and two ending output of the current partial solution. A special architecture called **context embedding** is designed in this model to represent the docoding context.  
+**context embedding**:
+> The context of the decoder at time t comes from the encoder and the output up to time t,  
+
+that means the graph embedding features, the node features for the first and last nodes in TSP. The new context node embedding in the next layer is computed by the multi-head attention mechanism, and the single query q_(c) is simply computed on context node embedding. The capatibility of the query is computed by all nodes and those can't be visited at current (for TSP it's the visited nodes) are masked.
+**REINFORCE with greedy rollout baseline**:
+utilize a rollout-baseline similiar to self-critical training ***but with periodic updates of the baseline policy***：
+>  b(s) is the cost of a solution from a deterministic greedy rollout of the policy defined by the best model so far
+to determine the baseline policy, they keep the greedy rollout policy unchanged within each epoch (a fixed number of steps), and replace the parameter at the end of each epoch if a significant improvement is verified by the t-test.
 ## GNN: 
 
 ### 
