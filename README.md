@@ -61,7 +61,7 @@ directly use the embedded output instead of the RNN hidden status.
 masking scheme: superior to classical solver to VRP, including Clarke-Wright savings heuristic (CW), the Sweep heuristic (SW), and Google’s optimization tools (OR-Tools), and is a proper tool for size-varing situation.
 
 ## Attention, Learn to Solve Routing Problem!
-Wouter Kool et al. 2019 ICLR, (TSP, two variants of VRP), transformer architecture
+Wouter Kool et al. 2019 ICLR, (TSP, orienteering problem, prize collecting TSP, stochastic PCTSP, ), transformer architecture
 >The application of Neural Networks (NNs) for optimizing decisions in combinatorial optimization problems dates back to Hopfield & Tank (1985), who applied a Hopfield-network for solving small TSP instances.  
 
 **Encoder**: a framework similiar to Vaswani et al. (2017) ***"attention is all your need"***
@@ -79,6 +79,9 @@ utilize a rollout-baseline similiar to self-critical training ***but with period
 to determine the baseline policy, they keep the greedy rollout policy unchanged within each epoch (a fixed number of steps), and replace the parameter at the end of each epoch if a significant improvement is verified by the t-test.
 
 ![](https://github.com/eziodeyk/OR-ML-survey/blob/master/attention-REINFORCE%20with%20Rollout%20Baseline.jpg)
+
+(dont' get it clearly).  
+**performance**: less optimal than the state-of-the-art solvers such as LKH3 and Gurobi but show advantage in convergence speed.
 ## GNN: 
 
 ### 
