@@ -54,13 +54,13 @@ Mohammadreza Nazari et al. 2018. NIPS, (VRP)
 directly use the embedded output instead of the RNN hidden status.
 **RNN structure**: since there is no meaning in the order of inputs, the hidden variables is useless in the context of combinatorial optimization. A change in the input may lead to extra cost on conputation for updating. The model consists of two components: the first is ***a set of graph embeddings***, which is in form of 1-layer GCN, but it simply ***utilize the local information of each node, without incorporating adjacency information***; the second is the RNN decoder, where the dynamic static elements is part of the input.  
 **Attention mechanism**: the mechanism is similar to one used in *Pointer Networks*
-> the embedding and attention mechanism are invariant to the input order.  
+> the embedding and attention mechanism are invariant to the input order.     
 **Training model**: policy gradient approach (***use an estimate of the gradient of the expected return with respect to the policy parameters to iteratively improve the policy***) consisting two networks: an actornetwork to predict the distribution over candidates for the next step and a critic network to assess the reward given current status. Two sampling strategies: greedy and beam search, the latter leads to improved prediction at the cost of a slight increase in computation.
 masking scheme: superior to classical solver to VRP, including Clarke-Wright savings heuristic (CW), the Sweep heuristic (SW), and Google’s optimization tools (OR-Tools), and is a proper tool for size-varing situation.
 
 ## Attention, Learn to Solve Routing Problem!
 Wouter Kool et al. 2019 ICLR, (TSP, two variants of VRP), transformer
->The application of Neural Networks (NNs) for optimizing decisions in combinatorial optimization problems dates back to Hopfield & Tank (1985), who applied a Hopfield-network for solving small TSP instances
+>The application of Neural Networks (NNs) for optimizing decisions in combinatorial optimization problems dates back to Hopfield & Tank (1985), who applied a Hopfield-network for solving small TSP instances.  
 **Attention**: the model could be reasonably considered as a Graph Attention Network
 consists of multi-head attention layer and a node-wise fully connected feed-forward layer. Each sublayer adds a skip-connection and batch normalization with ReLu activation.
 
