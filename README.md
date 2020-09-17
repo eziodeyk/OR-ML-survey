@@ -18,6 +18,7 @@ Irwan Bello et al. 2017. ICLR. (TSP, KP).
 The main drawback of the work by Oriol Vinyals is tied to the supervised training approach, since optimal routes are computationally infeasible in most cases in the domain of combinatorial optimization problems due to NP-hard characteristic, or multipel routes are equally optimal. This results to a limited availability of training examples and the its performance generally depends on the quality of labeled data. In respons to this fact, Irwan Bello et at. proposed model designated as Neural Cominatorial Optimization combining neural network and reinforcement learning and reports a significant improvement on performance in Euclideam planar TSP. With a reward function designed on the tour length, the policy-based reinforcement learning components is drived to graduatly optimize the parameter within the pointer network adhering the policy gradient method ***asynchronous advantage actor-critic (A3C)*** through stochastic gradient descend paradigm. The critic compromises three components: two LSTM models where one acts as encoder and the other as process block, and one two-layer neural network with ReLu activation as decoder deepening by an additional glimpse. In addition to the greedy algorithm premarily adopted in the the first version, another two reinformence learning techniqued provide more insight into evaluation of the tour: the first is called sampling where several sampled candidate routes controled by a temperature parameter are drawn from current status and the excat shortest is chosen for the next step; the other is active search to refine the stochastic gradient policy while search on the potential solution to the processed test instance. This model outperforms not only the original Pointer Network but others widly-used solver regards to average route length and running times.  
 ***glimpses***:
 >  to aggregate the contributions of different parts of the input sequence...yields performance gains at an insignificant cost latency.
+
 ### Cominatorial Optimization by Graph Pointer Networks and Hierarchical Reinforcement Learning:
 Qiang Ma et al. 2019. Columbia. (symmetric TSP, TSP with time window)  
 
@@ -83,5 +84,27 @@ to determine the baseline policy, they keep the greedy rollout policy unchanged 
 (dont' get it clearly).  
 **performance**: less optimal than the state-of-the-art solvers such as LKH3 and Gurobi but show advantage in convergence speed.
 ## GNN: 
+### A Note on Learning Algorithms for Quadratic Assignment with Graph Neural Networks
+Alex Nowak  et al. 2017 PMLR (graph matching, TSP)
+In this work, researchers try to directly use a ***siamese*** GNN to process two given graphs into embedding features and predict matching basd on these features.
+(It's mentioned in the paper that there are two approaches to train models: ground-truth based and cost based.) The auther stated promising results through supervised learning, and its performance on TSP is slightly less optimal than Pointer Network. The main drawback of this modeli ***the need for expensive ground truth examples*** and the gap to the optimal solver is hypethetically due to the model architecture.
+### Learning Combinatorial Optimization Algorithms over Graph
+Hanjun Dai et al. 2017 nips, TSP
+This is a work of conerstone for introducing the graph embedding and deep reinforcement learning into the domain of the cobinatorial optimization and a benchmark for most later researches. The authors introduce a graph embedding network called structure2vec to abstract information on the graph structure and node covariates into embedding feature vectors. These feature vectors are transmitted to the approximated evaluation function. A reinforcement learing method called Q-learning is deemed as the natural choice to parameterize the Q function.
+**structure-to-vec**:
+> the computation graph of structure2vec is inspired by graphical model inference algorithms, where node-specific tags or features x are aggregated recursively according to G’s graph topology. The node specific features as well as long-distance interaction is considered in the model through reccursive computation.
+
+parameterization: embed three parts of information including the binary scalar (or other useful node information), the neighborhood embedding, and weights of adjacent links; then feed output into the Q function
+**Q-learning**:
+policy: a deterministic greedy policy is to select the node on the remaining part of the graph that results to cellect reward.
+learning algorithm:  
+> a combination of n-step Q-learning (off policy, value-based, help to deal with delayed rewards, the procedure of waiting n steps before updating the approximator's -- Q-hat's -- parameters ) and fitted Q-iteration (uses experience replay; is shown to result in faster learning convergence when using a neural network as a function approximator; stochastic gradient descent updates are performed on a randome sample drawn from E ).  
+**training and experimental performance**:  
+> The hyperparameters are selected via preliminary results on small graphs, and then fixed for large ones; train the model on graphes with up to 500 nodes.  
+in comparison to pointer network with actor-critic algorithm:     
+> To handle different graph sizes, we use a singular value decomposition (SVD) to obtain a rank-8 approximation for the adjacency matrix, and use the low-rank embeddings as inputs to the pointer network.  
+
+the model trained on small-scale graphs could be well generalized to large-scale ones with up to 1k nodes.
+###
 
 ### 
