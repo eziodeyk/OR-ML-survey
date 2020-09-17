@@ -15,7 +15,7 @@ A sequence-to-sequence model with modified attention mechanism where the output 
 ### Neural Combinatorial Optimization with Reinforcement Learning:
 Irwan Bello et al. 2017. ICLR. (TSP, KP).  
 
-The main drawback of the work by Oriol Vinyals is tied to the supervised training approach, since optimal routes are computationally infeasible in most cases in the domain of combinatorial optimization problems due to NP-hard characteristic, or multipel routes are equally optimal. This results to a limited availability of training examples and the its performance generally depends on the quality of labeled data. In respons to this fact, Irwan Bello et at. proposed model designated as Neural Cominatorial Optimization combining neural network and reinforcement learning and reports a significant improvement on performance in Euclideam planar TSP. With a reward function designed on the tour length, the policy-based reinforcement learning components is drived to graduatly optimize the parameter within the pointer network adhering the policy gradient method asynchronous advan- tage actor-critic (A3C) through stochastic gradient descend paradigm. The critic compromise three components: two LSTM model where one act as encoder and the other as process block, and one two-layer neural network with ReLu activation as decoder. In addition to the greedy algorithm premarily adopted in the the first version, another two reinformence learning techniqued provide more insight into evaluation of the tour: the first is called sampling where several sampled candidate routes controled by a temperature parameter are drawn from current status and the excat shortest is chosen for the next step; the other is active search to refine the stochastic gradient policy while search on the potential solution to the processed test instance. This model outperforms not only the original Pointer Network but others widly-used solver regards to average route length and running times.
+The main drawback of the work by Oriol Vinyals is tied to the supervised training approach, since optimal routes are computationally infeasible in most cases in the domain of combinatorial optimization problems due to NP-hard characteristic, or multipel routes are equally optimal. This results to a limited availability of training examples and the its performance generally depends on the quality of labeled data. In respons to this fact, Irwan Bello et at. proposed model designated as Neural Cominatorial Optimization combining neural network and reinforcement learning and reports a significant improvement on performance in Euclideam planar TSP. With a reward function designed on the tour length, the policy-based reinforcement learning components is drived to graduatly optimize the parameter within the pointer network adhering the policy gradient method ***asynchronous advantage actor-critic (A3C)*** through stochastic gradient descend paradigm. The critic compromise three components: two LSTM model where one act as encoder and the other as process block, and one two-layer neural network with ReLu activation as decoder deepened by an additional glimpse. In addition to the greedy algorithm premarily adopted in the the first version, another two reinformence learning techniqued provide more insight into evaluation of the tour: the first is called sampling where several sampled candidate routes controled by a temperature parameter are drawn from current status and the excat shortest is chosen for the next step; the other is active search to refine the stochastic gradient policy while search on the potential solution to the processed test instance. This model outperforms not only the original Pointer Network but others widly-used solver regards to average route length and running times.
 
 ### Combinatorial Optimization by Graph Pointer Networks and Hierarchical Reinforcement Learning:
 Qiang Ma et al. 2019. Columbia. (symmetric TSP, TSP with time window)  
@@ -59,10 +59,11 @@ directly use the embedded output instead of the RNN hidden status.
 masking scheme: superior to classical solver to VRP, including Clarke-Wright savings heuristic (CW), the Sweep heuristic (SW), and Google’s optimization tools (OR-Tools), and is a proper tool for size-varing situation.
 
 ## Attention, Learn to Solve Routing Problem!
-Wouter Kool et al. 2019 ICLR
+Wouter Kool et al. 2019 ICLR, (TSP, two variants of VRP), transformer
+>The application of Neural Networks (NNs) for optimizing decisions in combinatorial optimization problems dates back to Hopfield & Tank (1985), who applied a Hopfield-network for solving small TSP instances
+**Attention**: the model could be reasonably considered as a Graph Attention Network
+consists of multi-head attention layer and a node-wise fully connected feed-forward layer. Each sublayer adds a skip-connection and batch normalization with ReLu activation.
 
-## GNN:
-### 
-
+## GNN: 
 
 ### 
