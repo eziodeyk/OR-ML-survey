@@ -77,6 +77,8 @@ that means the graph embedding features, the node features for the first and las
 utilize a rollout-baseline similiar to self-critical training ***but with periodic updates of the baseline policy***：
 >  b(s) is the cost of a solution from a deterministic greedy rollout of the policy defined by the best model so far
 to determine the baseline policy, they keep the greedy rollout policy unchanged within each epoch (a fixed number of steps), and replace the parameter at the end of each epoch if a significant improvement is verified by the t-test.
+
+![](https://github.com/eziodeyk/OR-ML-survey/blob/master/attention-REINFORCE%20with%20Rollout%20Baseline.jpg)
 ## GNN: 
 
 ### 
