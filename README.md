@@ -106,7 +106,10 @@ in comparison to pointer network with actor-critic algorithm:
 > To handle different graph sizes, we use a singular value decomposition (SVD) to obtain a rank-8 approximation for the adjacency matrix, and use the low-rank embeddings as inputs to the pointer network.  
 
 the model trained on small-scale graphs could be well generalized to large-scale ones with up to 1k nodes.  
+
 ### Learning to Solve NP-Complete Problems: A Graph Neural Network for Decision TSP
+Marcelo Prates et al. 2019, AAAI， (TSP)
+
 
 ## Message Passing Neural Networks (yet no idea)
 ### Neural Message Passing for Quantum Chemistry
@@ -117,10 +120,14 @@ Daniel Selsam et al. 2019, supervised learing
 Thomas D. Barrett et al. 2020, reinforcement learning
 
 ## GCN
-### Learning to Solve NP-Complete Problems: A Graph Neural Network for Decision TSP
-Marcelo Prates et al. 2019, AAAI
+
+
+
 ### Learning Heuristics over Large Graphs via Deep Reinforcement Learning
 Sahil Manchanda et al. 2020, 
 GCOMB：
-
+> scalable to billion-sized graphs and up to 100 times faster;  
+> on average, computes higher quality solution sets than S2V-DQN and GCN-TREESEARCH
+> improves upon the state-of-the-art algorithm for Influence Maximization on social networks
+(lack of credibility)
 ### 
