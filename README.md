@@ -151,30 +151,21 @@ the role of the graph neural network is divided into two parts: the first one is
 ### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case (pending)
 Paul Almasan et al. 2020， DRN+GNN
 
-
+### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (pending with priority)
+Kenshin Abe et al. 2020, RIKEN（Japan)
 
 ## Message Passing Neural Networks (yet no idea)
 ### Neural Message Passing for Quantum Chemistry (pending)
 Justin Gilmer et al. 2017, supervised learning,
 ### Learning a SAT Solver from Single-bit Supervision (pending)
 Daniel Selsam et al. 2019, supervised learing
-### Exploratory Combinatorial Optimization with Reinforcement Learning (pending)
+### Exploratory Combinatorial Optimization with Reinforcement Learning (in progress)
 Thomas D. Barrett et al. 2020, reinforcement learning
 
 ## GCN
 
+### Learning 2-opt Heuristics for the Traveling Salesman Problem via Deep Reinforcement Learning (in process)
 
-
-### Learning Heuristics over Large Graphs via Deep Reinforcement Learning (in process)
-Sahil Manchanda et al. 2020, (non end-to-end)
-GCOMB：
-> scalable to billion-sized graphs and up to 100 times faster;  
-> on average, computes higher quality solution sets than S2V-DQN and GCN-TREESEARCH
-> improves upon the state-of-the-art algorithm for Influence Maximization on social networks
-(lack of credibility)
-
-### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (pending)
-Kenshin Abe et al. 2020, RIKEN（Japan)
 
 
 
