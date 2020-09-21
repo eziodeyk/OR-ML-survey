@@ -148,7 +148,7 @@ the role of the graph neural network is divided into two parts: the first one is
 
 **performance**:???
 
-### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case (in process)
+### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case (pending)
 Paul Almasan et al. 2020， DRN+GNN
 
 
