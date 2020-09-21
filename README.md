@@ -164,14 +164,14 @@ Thomas D. Barrett et al. 2020, reinforcement learning
 
 ## GCN
 ### An efficient graph convolutional network technique for the travelling salesman problem
-Chaitanya K. Joshi et al. 2019, supervised learning 
-with code: https://github.com/chaitjo/graph-convnet-tsp
-keywords: non-autoregressive -- ***"outperforms all recently proposed autoregressive deep learning techniques"***
-The model takes the whole graph as input and proceed it into an adjancent matrix as the solution to the TSP. Given the ground-truth solution to graph at hand, they employed the supervised learning method by defining the loss function based on batch-averaged ***weighted binary cross-entropy***. It computes h-dimensional vectors for each node and edge on the graph, and the final edge features are projected through softmax layer into the ground-truth TSP tour.  
+Chaitanya K. Joshi et al. 2019, supervised learning.  
+with code: https://github.com/chaitjo/graph-convnet-tsp.  
+keywords: non-autoregressive -- ***"outperforms all recently proposed autoregressive deep learning techniques"***.  
+The model takes the whole graph as input and proceed it into an adjancent matrix as the solution to the TSP. Given the ground-truth solution to graph at hand, they employed the supervised learning method by defining the loss function based on batch-averaged ***weighted binary cross-entropy***. It computes h-dimensional vectors for each node and edge on the graph, and the final edge features are projected through softmax layer into the ground-truth TSP tour.   
 The main point of this work locates itself in the comprensive description on the structure of its GCN model, which consists of two types of layers: the input layer and convolutional layer.  
 **input layer**: the two-dimensional coordinates are embedded into h-dimensional vectors, the Euclidean distances of edges concated with three indicies (1 for k-nearest neighbor, 2 for self-connection, and 0 for others) to h/2-dimensional ones. It states that the input of k-nearest neighbors may contribute to speed up the convergence in TSP.  
-**graph convolutional layer**: 
-the graph convolutional layers works on both node-embedding features and edge-emmbedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.
+**graph convolutional layer**:  
+the graph convolutional layers works on both node-embedding features and edge-emmbedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.   
 ### Learning 2-opt Heuristics for the Traveling Salesman Problem via Deep Reinforcement Learning (pending)
 
 
