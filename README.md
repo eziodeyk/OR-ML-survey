@@ -7,61 +7,25 @@
 
 （Deep reinforcement learning = deep learning + reinforcement learning)
 
-## category  Attention:
+## category  sequence-to-sequence:
 
-### Pointer Networks：
+### RNN
+#### Learning Permutations with Sinkhorn Policy Gradient (pending)
+
+### PN
+#### Pointer Networks：
 Oriol Vinyals et al. 2015.  NIPS, (TSP, convex hall, delaunay triangulation).  
 
 A sequence-to-sequence model with modified attention mechanism where the output is in form of a distribution over all elements of the input. It delivers solutions to a set of problems that the size of output dictionary depends on the input, which is typical in combinatorial optimization problem. The "pointer" in its name refers to a softmax layer generating a probability distribution function on the input from embedding features of each element in input by both encoder and decoder. In the original paper, they conduct experiments on three classical combinatorial problems: convex hall problem (to find a mininal set of nodes to circle all elements on the graph with their connecting links), delaunay triangulation problem (to find the triangulation form of a given set without any node circled by triangles in the segementation), and travelling saleman problem (to find a rount in 2D Euclideam space visiting each node exactly once and return to the original point with shortest distance). The Pointer Network is reported to show improvement on performance on all three problems in small sets compared to previous machine learning methods while fails in large-scale delaunay triangulation problems. More importantly, invalid tours could be produced by Pointer Network model and a beam search algorithm is deployed to only select the valid ones. Generally, it obtains results close to classical exact and heuristic solvers in TSP, and is considered as a breakthrough in application of machine learning model in an end-to-end approach to combinatorial optimazaion problems especially the TSP.
 
-### Neural Combinatorial Optimization with Reinforcement Learning:
+#### Neural Combinatorial Optimization with Reinforcement Learning:
 Irwan Bello et al. 2016. ICLR. (TSP, KP).  
 
 The main drawback of the work by Oriol Vinyals is tied to the supervised training approach, since optimal routes are computationally infeasible in most cases in the domain of combinatorial optimization problems due to NP-hard characteristic, or multipel routes are equally optimal. This results to a limited availability of training examples and the its performance generally depends on the quality of labeled data. In respons to this fact, Irwan Bello et at. proposed model designated as Neural Cominatorial Optimization combining neural network and reinforcement learning and reports a significant improvement on performance in Euclideam planar TSP. With a reward function designed on the tour length, the policy-based reinforcement learning components is drived to graduatly optimize the parameter within the pointer network adhering the policy gradient method ***asynchronous advantage actor-critic (A3C)*** through stochastic gradient descend paradigm. The critic compromises three components: two LSTM models where one acts as encoder and the other as process block, and one two-layer neural network with ReLu activation as decoder deepening by an additional glimpse. In addition to the greedy algorithm premarily adopted in the the first version, another two reinformence learning techniqued provide more insight into evaluation of the tour: the first is called sampling where several sampled candidate routes controled by a temperature parameter are drawn from current status and the excat shortest is chosen for the next step; the other is active search to refine the stochastic gradient policy while search on the potential solution to the processed test instance. This model outperforms not only the original Pointer Network but others widly-used solver regards to average route length and running times.  
 ***glimpses***:
 >  to aggregate the contributions of different parts of the input sequence...yields performance gains at an insignificant cost latency.
 
-### Reinforcement Learning for Solving the Vehicle Routing Problem
-Mohammadreza Nazari et al. 2018. NIPS, (VRP)    
-> **Policy model** consists of a recurrent neural network decoder coupled with an attention mechanism 
-
-directly use the embedded output instead of the RNN hidden status   
-**RNN structure**: since there is no meaning in the order of inputs, the hidden variables is useless in the context of combinatorial optimization. A change in the input may lead to extra cost on conputation for updating. The model consists of two components: the first is ***a set of graph embeddings***, which is in form of 1-layer GCN, but it simply ***utilize the local information of each node, without incorporating adjacency information***; the second is the RNN decoder, where the dynamic static elements is part of the input.  
-**Attention mechanism**: the mechanism is similar to one used in *Pointer Networks*
-> the embedding and attention mechanism are invariant to the input order. 
-
-**Training model**: policy gradient approach (***use an estimate of the gradient of the expected return with respect to the policy parameters to iteratively improve the policy***) consisting two networks: an actornetwork to predict the distribution over candidates for the next step and a critic network to assess the reward given current status. Two sampling strategies: greedy and beam search, the latter leads to improved prediction at the cost of a slight increase in computation.  
-masking scheme: superior to classical solver to VRP, including Clarke-Wright savings heuristic (CW), the Sweep heuristic (SW), and Google’s optimization tools (OR-Tools), and is a proper tool for size-varing situation.  
-
-
-### Learning Heuristics for the TSP by Policy Gradient
-Michel Deudon et al. 2018, CPAIOR, (TSP)
-The authors proposed a model originated from the Pointer Net by Ballo(2016) soly based on attention mechanisms (self-attetion, Vaswani 2017) instead of the LSTM architecture.
-**The extended neural combinatorial optimization framework**:
-
-**Encoder**:  
-the encoder maps the input set into a latent space, by which the decoder generates the stepwise output in the auto-regressive manner.  
-To address orientation issue, they firstly centered and then applied PCA over all nodes. After embedding and batch-normalization, the processed features are led to the N-layer encoder where each layer consists two sublayer -- the multi-head attention and the feed-forward (***two position-wise linear trans- formations with a ReLU activation in between***), and the output is in form of:  
-> LayerNorm(x + Sublayer(x))   
-**the multi-head attention**:  
-linear transformation for h times in parallel of Q, K, V into lower dimensionals vector and feed them forward to the attention mechanism. 
-
-**Decoder**:  
-> explicitly forgets after K = 3 steps, dispensing with LSTM networks.  
-say, maps query at time t to the last three actions. 
-
-**Training**:  
-> trained by Policy Gradient using the REINFORCE learning rule with a critic to reduce the variance of the gradients.  
-
-**policy gradient and REINFORCE**.   
-key words: a critic network to reduce the variance of the gradients. And Monte-Carlo sampling with to approximate the gradient in batch;  
-the critic uses the glimpse technic ***computed as a weighted sum of the action vectors***.  
->  fed to a 2 fully connected layers with ReLu acti- vations. The critic is trained by minimizing the Mean Square Error between its predictions and the actor’s rewards.
-
-**performance**:
-outperforms the pointer net in small-scale cases but doesn't keep advantage in large-scale cases.
-
-### Cominatorial Optimization by Graph Pointer Networks and Hierarchical Reinforcement Learning:
+#### Cominatorial Optimization by Graph Pointer Networks and Hierarchical Reinforcement Learning:
 Qiang Ma et al. 2019. Columbia. (symmetric TSP, TSP with time window)  
 
 Graph(enhanced) Pointer network; large-scale TSP problem; hierarchical reinforcement learning
@@ -90,8 +54,49 @@ graph pointer network:
   **GPN**: the trained model could be well-generalized to large-scale graphs (up to 1000 nodes) when trained on small-scale graphs within less running time; the graph embedding is proved to be useful since the it outperforms the pointer network, but still inferior to graph attention model; the local search algorithm 2-opt is applied to improve the performance in large-scale setting.   
   **Two-layer heirarchical GPN**: add penalty of leaving beyond time constrains to the loss function of lower layer; total time cost as loss function in higher layer plus penalty defined in previous; outperforms all other baselines including OR-tools by Google and heuristic ant colony optimization algorithm.  
   
+### Attention
+#### Reinforcement Learning for Solving the Vehicle Routing Problem
+Mohammadreza Nazari et al. 2018. NIPS, (VRP)    
+> **Policy model** consists of a recurrent neural network decoder coupled with an attention mechanism 
 
-### Attention, Learn to Solve Routing Problem!
+directly use the embedded output instead of the RNN hidden status   
+**RNN structure**: since there is no meaning in the order of inputs, the hidden variables is useless in the context of combinatorial optimization. A change in the input may lead to extra cost on conputation for updating. The model consists of two components: the first is ***a set of graph embeddings***, which is in form of 1-layer GCN, but it simply ***utilize the local information of each node, without incorporating adjacency information***; the second is the RNN decoder, where the dynamic static elements is part of the input.  
+**Attention mechanism**: the mechanism is similar to one used in *Pointer Networks*
+> the embedding and attention mechanism are invariant to the input order. 
+
+**Training model**: policy gradient approach (***use an estimate of the gradient of the expected return with respect to the policy parameters to iteratively improve the policy***) consisting two networks: an actornetwork to predict the distribution over candidates for the next step and a critic network to assess the reward given current status. Two sampling strategies: greedy and beam search, the latter leads to improved prediction at the cost of a slight increase in computation.  
+masking scheme: superior to classical solver to VRP, including Clarke-Wright savings heuristic (CW), the Sweep heuristic (SW), and Google’s optimization tools (OR-Tools), and is a proper tool for size-varing situation.  
+
+### Transformer
+#### Learning Heuristics for the TSP by Policy Gradient
+Michel Deudon et al. 2018, CPAIOR, (TSP)
+The authors proposed a model originated from the Pointer Net by Ballo(2016) soly based on attention mechanisms (self-attetion, Vaswani 2017) instead of the LSTM architecture.
+**The extended neural combinatorial optimization framework**:
+
+**Encoder**:  
+the encoder maps the input set into a latent space, by which the decoder generates the stepwise output in the auto-regressive manner.  
+To address orientation issue, they firstly centered and then applied PCA over all nodes. After embedding and batch-normalization, the processed features are led to the N-layer encoder where each layer consists two sublayer -- the multi-head attention and the feed-forward (***two position-wise linear trans- formations with a ReLU activation in between***), and the output is in form of:  
+> LayerNorm(x + Sublayer(x))   
+**the multi-head attention**:  
+linear transformation for h times in parallel of Q, K, V into lower dimensionals vector and feed them forward to the attention mechanism. 
+
+**Decoder**:  
+> explicitly forgets after K = 3 steps, dispensing with LSTM networks.  
+say, maps query at time t to the last three actions. 
+
+**Training**:  
+> trained by Policy Gradient using the REINFORCE learning rule with a critic to reduce the variance of the gradients.  
+
+**policy gradient and REINFORCE**.   
+key words: a critic network to reduce the variance of the gradients. And Monte-Carlo sampling with to approximate the gradient in batch;  
+the critic uses the glimpse technic ***computed as a weighted sum of the action vectors***.  
+>  fed to a 2 fully connected layers with ReLu acti- vations. The critic is trained by minimizing the Mean Square Error between its predictions and the actor’s rewards.
+
+**performance**:
+outperforms the pointer net in small-scale cases but doesn't keep advantage in large-scale cases.
+
+
+#### Attention, Learn to Solve Routing Problem!
 Wouter Kool et al. 2019 ICLR, (TSP, orienteering problem, prize collecting TSP, stochastic PCTSP, ), transformer architecture  
 
 >The application of Neural Networks (NNs) for optimizing decisions in combinatorial optimization problems dates back to Hopfield & Tank (1985), who applied a Hopfield-network for solving small TSP instances.  
@@ -119,12 +124,12 @@ to determine the baseline policy, they keep the greedy rollout policy unchanged 
 
 ## category graph: 
 ### GNN
-### A Note on Learning Algorithms for Quadratic Assignment with Graph Neural Networks  
+#### A Note on Learning Algorithms for Quadratic Assignment with Graph Neural Networks  
 Alex Nowak  et al. 2017 PMLR (graph matching, TSP)  
 In this work, researchers try to directly use a ***siamese*** GNN to process two given graphs into embedding features and predict matching basd on these features.
 (It's mentioned in the paper that there are two approaches to train models: ground-truth based and cost based.) The auther stated promising results through supervised learning, and its performance on TSP is slightly less optimal than Pointer Network. The main drawback of this modeli ***the need for expensive ground truth examples*** and the gap to the optimal solver is hypethetically due to the model architecture.
 
-### Learning Combinatorial Optimization Algorithms over Graph.  
+#### Learning Combinatorial Optimization Algorithms over Graph.  
 Hanjun Dai et al. 2017 nips, TSP  
 This is a work of conerstone for introducing the graph embedding and deep reinforcement learning into the domain of the cobinatorial optimization and a benchmark for most later researches. The authors introduce a graph embedding network called structure2vec to abstract information on the graph structure and node covariates into embedding feature vectors. These feature vectors are transmitted to the approximated evaluation function. A reinforcement learing method called Q-learning is deemed as the natural choice to parameterize the Q function.  
 **structure-to-vec**:  
@@ -143,7 +148,7 @@ in comparison to pointer network with actor-critic algorithm:
 the model trained on small-scale graphs could be well generalized to large-scale ones with up to 1k nodes.  
 
 
-### Learning to Solve NP-Complete Problems: A Graph Neural Network for Decision TSP
+#### Learning to Solve NP-Complete Problems: A Graph Neural Network for Decision TSP
 Marcelo Prates et al. 2019, AAAI, (TSP)
 ***The GNN model for TSP***:
 the role of the graph neural network is divided into two parts: the first one is to ***assgin a multidimensional embedding to each vertex***; and the second is to ***perform a given number of message-passing iterations*** (where the embedding of each node is transmitted to its adjacencies as their incoming messages). Those incoming messages are added up and fed into a RNN. ***The only trainable parameters of such a model are the message computing modules and the RNN***.   
@@ -153,18 +158,18 @@ the role of the graph neural network is divided into two parts: the first one is
 
 **performance**:???
 
-### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case (pending)
+#### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case (pending)
 Paul Almasan et al. 2020， DRN+GNN
 
-### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (pending with priority)
+#### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (pending with priority)
 Kenshin Abe et al. 2020, RIKEN（Japan)
 
-## Message Passing Neural Networks (yet no idea)
-### Neural Message Passing for Quantum Chemistry (pending)
+### Message Passing Neural Networks (yet no idea)
+#### Neural Message Passing for Quantum Chemistry (pending)
 Justin Gilmer et al. 2017, supervised learning,
-### Learning a SAT Solver from Single-bit Supervision (pending)
+#### Learning a SAT Solver from Single-bit Supervision (pending)
 Daniel Selsam et al. 2019, supervised learing
-### Exploratory Combinatorial Optimization with Reinforcement Learning (in progress)
+#### Exploratory Combinatorial Optimization with Reinforcement Learning (in progress)
 Thomas D. Barrett et al. 2020, reinforcement learning, (max-cut)
 ECO-DQN: exploratory combinatorial optimization - Deep Q-Network.  
 concepts: 
@@ -187,7 +192,7 @@ seven observations are used in Q-value to flip (?) each vertex.
 > ECO-DQN ≡ S2V-DQN+RevAct+ObsTun+IntRew
 
 ### GCN
-### An efficient graph convolutional network technique for the travelling salesman problem
+#### An efficient graph convolutional network technique for the travelling salesman problem
 Chaitanya K. Joshi et al. 2019, supervised learning.  
 with code: https://github.com/chaitjo/graph-convnet-tsp.  
 keywords: non-autoregressive -- ***"outperforms all recently proposed autoregressive deep learning techniques"***.  
@@ -197,12 +202,12 @@ The main point of this work locates itself in the comprensive description on the
 **graph convolutional layer**:  
 the graph convolutional layers works on both node-embedding features and edge-emmbedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.   
 
-### Learning Heuristics over Large Graphs via Deep Reinforcement Learning (in process)
+#### Learning Heuristics over Large Graphs via Deep Reinforcement Learning (in process)
 
-### Learning 2-opt Heuristics for the Traveling Salesman Problem via Deep Reinforcement Learning (pending)
+#### Learning 2-opt Heuristics for the Traveling Salesman Problem via Deep Reinforcement Learning (pending)
 
-### RNN
-### Learning Permutations with Sinkhorn Policy Gradient (pending)
+## category others：
+
 
 
 
