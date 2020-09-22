@@ -3,7 +3,8 @@
 >>  ***quoted from the original resources***  
 >>  **to emphasis**  
 >> > original context
-# End-to-end model (also containing deep reinforcement learning model which are not explicitly trained in the end-to-end mannner but worth recommending):
+# End-to-end model 
+**(also containing deep reinforcement learning model which are not explicitly trained in the end-to-end mannner but worth recommending)**
 
 （Deep reinforcement learning = deep learning + reinforcement learning)
 ## DEEP LEARNING AND REINFORCEMENT LEARNING
