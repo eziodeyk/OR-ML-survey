@@ -171,7 +171,7 @@ Kenshin Abe et al. 2020, RIKEN（Japan)
 Justin Gilmer et al. 2017, supervised learning,
 #### Learning a SAT Solver from Single-bit Supervision (pending)
 Daniel Selsam et al. 2019, supervised learing
-#### Exploratory Combinatorial Optimization with Reinforcement Learning (in progress)
+#### Exploratory Combinatorial Optimization with Reinforcement Learning   
 Thomas D. Barrett et al. 2020, reinforcement learning, (max-cut)
 ECO-DQN: exploratory combinatorial optimization - Deep Q-Network.  
 concepts: 
