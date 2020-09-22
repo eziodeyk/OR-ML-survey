@@ -170,8 +170,17 @@ concepts:
 **value function**: given a state-action pair, its Q-value is ***the discounted sum of immediate and future rewards*** starting from the initial state & action and following the optimal policy.   
 **deep Q-network**: a function with parameters to approximate the maximum of Q-value following the optimal policy. **Once trained, an approxima- tion of the optimal policy can be obtained simply by acting greedily with respect to the predicted Q-values**.  
 ***explore the solution space at test time, rather than producing only a single “best-guess”***
-**message passing neural network**: use the MPNN as the DPN in the model -- ***a general framework of which many common graph networks are specific implementations***
+**message passing neural network**: use the MPNN as the DPN in the model -- ***a general framework of which many common graph networks are specific implementations***.  
+It embedds each vertex in the graph into a n-dimensional features in the following way: the input vector of observation is firstly initialised by the a function and then iteratively updated one node at a time with information from neighbors through message and update functions.  
 
+**exploiting exploration (yet unclear: it feels like )**: ***trained to explore the solution space at test time** (???).   
+***the Q-value of ei- ther adding or removing a vertex from the solution is continually re-evaluated in the context of the episode’s history. Additionally, as all actions can be reversed***
+
+* reward shaping:   
+** to find the best solution with highest cut-value without punishment when choose an action reducing the cut-value.  
+** normalised by the total number of vertices.  
+* observations:
+seven observations are used in Q-value to flip (?) each vertex.
 
 
 
