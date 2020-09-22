@@ -6,7 +6,7 @@
 # End-to-end model (also containing deep reinforcement learning model which are not explicitly trained in the end-to-end mannner but worth recommending):
 
 （Deep reinforcement learning = deep learning + reinforcement learning)
-
+## DEEP LEARNING AND REINFORCEMENT LEARNING
 ## category  sequence-to-sequence:
 
 ### RNN
@@ -208,6 +208,6 @@ the graph convolutional layers works on both node-embedding features and edge-em
 
 ## category others：
 
-
+## TRADITIONAL MACHINE LEARNING MODELS AS END-TO-END METHODS
 
 
