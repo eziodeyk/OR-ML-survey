@@ -3,9 +3,11 @@
 >>  ***quoted from the original resources***  
 >>  **to emphasis**  
 >> > original context
-# End-to-end model:
+# End-to-end model (also containing deep reinforcement learning model which are not explicitly trained in the end-to-end mannner but worth recommending):
 
-## Attention:
+（Deep reinforcement learning = deep learning + reinforcement learning)
+
+## category  Attention:
 
 ### Pointer Networks：
 Oriol Vinyals et al. 2015.  NIPS, (TSP, convex hall, delaunay triangulation).  
@@ -115,7 +117,8 @@ to determine the baseline policy, they keep the greedy rollout policy unchanged 
 **performance**: less optimal than the state-of-the-art solvers such as LKH3 and Gurobi but show advantage in convergence speed.
 
 
-## GNN: 
+## category graph: 
+### GNN
 ### A Note on Learning Algorithms for Quadratic Assignment with Graph Neural Networks  
 Alex Nowak  et al. 2017 PMLR (graph matching, TSP)  
 In this work, researchers try to directly use a ***siamese*** GNN to process two given graphs into embedding features and predict matching basd on these features.
@@ -181,10 +184,9 @@ It embedds each vertex in the graph into a n-dimensional features in the followi
 ** normalised by the total number of vertices.  
 * observations:
 seven observations are used in Q-value to flip (?) each vertex.
+> ECO-DQN ≡ S2V-DQN+RevAct+ObsTun+IntRew
 
-
-
-## GCN
+### GCN
 ### An efficient graph convolutional network technique for the travelling salesman problem
 Chaitanya K. Joshi et al. 2019, supervised learning.  
 with code: https://github.com/chaitjo/graph-convnet-tsp.  
@@ -194,8 +196,13 @@ The main point of this work locates itself in the comprensive description on the
 **input layer**: the two-dimensional coordinates are embedded into h-dimensional vectors, the Euclidean distances of edges concated with three indicies (1 for k-nearest neighbor, 2 for self-connection, and 0 for others) to h/2-dimensional ones. It states that the input of k-nearest neighbors may contribute to speed up the convergence in TSP.  
 **graph convolutional layer**:  
 the graph convolutional layers works on both node-embedding features and edge-emmbedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.   
+
+### Learning Heuristics over Large Graphs via Deep Reinforcement Learning (in process)
+
 ### Learning 2-opt Heuristics for the Traveling Salesman Problem via Deep Reinforcement Learning (pending)
 
+### RNN
+### Learning Permutations with Sinkhorn Policy Gradient (pending)
 
 
 
