@@ -115,7 +115,8 @@ The new context node embedding in the next layer is computed by the multi-head a
 **REINFORCE with greedy rollout baseline**:  
 utilize a rollout-baseline similiar to self-critical training ***but with periodic updates of the baseline policy***：  
 >  b(s) is the cost of a solution from a deterministic greedy rollout of the policy defined by the best model so far  
-to determine the baseline policy, they keep the greedy rollout policy unchanged within each epoch (a fixed number of steps), and replace the parameter at the end of each epoch if a significant improvement is verified by the t-test.   
+to determine the baseline policy, they keep the greedy rollout policy unchanged within each epoch (a fixed number of steps), and replace the parameter at the end of each epoch if a significant improvement is verified by the t-test. 
+
 (quoted)  
 ![](https://github.com/eziodeyk/OR-ML-survey/blob/master/attention-REINFORCE%20with%20Rollout%20Baseline.jpg)
 
