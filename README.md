@@ -127,12 +127,12 @@ to determine the baseline policy, they keep the greedy rollout policy unchanged 
 ## category graph: 
 ### GNN
 #### A Note on Learning Algorithms for Quadratic Assignment with Graph Neural Networks  
-Alex Nowak  et al. 2017 PMLR (graph matching, TSP)  
+Alex Nowak  et al. 2017, PMLR (graph matching, TSP)  
 In this work, researchers try to directly use a ***siamese*** GNN to process two given graphs into embedding features and predict matching basd on these features.
 (It's mentioned in the paper that there are two approaches to train models: ground-truth based and cost based.) The auther stated promising results through supervised learning, and its performance on TSP is slightly less optimal than Pointer Network. The main drawback of this modeli ***the need for expensive ground truth examples*** and the gap to the optimal solver is hypethetically due to the model architecture.
 
 #### Learning Combinatorial Optimization Algorithms over Graph.  
-Hanjun Dai et al. 2017 nips, TSP  
+Hanjun Dai et al. 2017, nips, TSP  
 This is a work of conerstone for introducing the graph embedding and deep reinforcement learning into the domain of the cobinatorial optimization and a benchmark for most later researches. The authors introduce a graph embedding network called structure2vec to abstract information on the graph structure and node covariates into embedding feature vectors. These feature vectors are transmitted to the approximated evaluation function. A reinforcement learing method called Q-learning is deemed as the natural choice to parameterize the Q function.  
 **structure-to-vec**:  
 > the computation graph of structure2vec is inspired by graphical model inference algorithms, where node-specific tags or features x are aggregated recursively according to G’s graph topology. The node specific features as well as long-distance interaction is considered in the model through reccursive computation.
@@ -169,8 +169,10 @@ Kenshin Abe et al. 2020, RIKEN（Japan)
 ### Message Passing Neural Networks
 #### Neural Message Passing for Quantum Chemistry (pending)
 Justin Gilmer et al. 2017, supervised learning,
-#### Learning a SAT Solver from Single-bit Supervision (pending)
-Daniel Selsam et al. 2019, supervised learing
+
+#### Learning a SAT Solver from Single-bit Supervision (in process)
+Daniel Selsam et al. 2019, ICLR, supervised learing, (SAT)
+
 #### Exploratory Combinatorial Optimization with Reinforcement Learning   
 Thomas D. Barrett et al. 2020, reinforcement learning, (max-cut)
 ECO-DQN: exploratory combinatorial optimization - Deep Q-Network.  
