@@ -4,7 +4,7 @@
 >>  **to emphasis**  
 >> > original context
 # End-to-end model 
-**(also containing deep reinforcement learning model which are not explicitly trained in the end-to-end mannner but worth recommending)**
+**(also containing deep reinforcement learning models which are not explicitly trained in an exactly end-to-end mannner but worth recommending)**
 
 （Deep reinforcement learning = deep learning + reinforcement learning)
 ## DEEP LEARNING AND REINFORCEMENT LEARNING
@@ -17,12 +17,12 @@
 #### Pointer Networks：
 Oriol Vinyals et al. 2015.  NIPS, (TSP, convex hall, delaunay triangulation).  
 
-A sequence-to-sequence model with modified attention mechanism where the output is in form of a distribution over all elements of the input. It delivers solutions to a set of problems that the size of output dictionary depends on the input, which is typical in combinatorial optimization problem. The "pointer" in its name refers to a softmax layer generating a probability distribution function on the input from embedding features of each element in input by both encoder and decoder. In the original paper, they conduct experiments on three classical combinatorial problems: convex hall problem (to find a mininal set of nodes to circle all elements on the graph with their connecting links), delaunay triangulation problem (to find the triangulation form of a given set without any node circled by triangles in the segementation), and travelling saleman problem (to find a rount in 2D Euclideam space visiting each node exactly once and return to the original point with shortest distance). The Pointer Network is reported to show improvement on performance on all three problems in small sets compared to previous machine learning methods while fails in large-scale delaunay triangulation problems. More importantly, invalid tours could be produced by Pointer Network model and a beam search algorithm is deployed to only select the valid ones. Generally, it obtains results close to classical exact and heuristic solvers in TSP, and is considered as a breakthrough in application of machine learning model in an end-to-end approach to combinatorial optimazaion problems especially the TSP.
+A sequence-to-sequence model with modified attention mechanism where the output is in form of a distribution over all elements of the input. It delivers solutions to a set of problems that the size of output dictionary depends on the input, which is typical in combinatorial optimization problem. The "pointer" in its name refers to a softmax layer generating a probability distribution function on the input from embedding features of each element in input by both encoder and decoder. In the original paper, they conduct experiments on three classical combinatorial problems: convex hall problem (to find a mininal set of nodes to circle all elements on the graph with their connecting links), delaunay triangulation problem (to find the triangulation form of a given set without any node circled by triangles in the segementation), and travelling saleman problem (to find a rount in 2D Euclideam space visiting each node exactly once and return to the original point with shortest distance). The Pointer Network is reported to show improvement on performance on all three problems in small sets compared to previous machine learning methods while fails in large-scale delaunay triangulation problems. More importantly, invalid tours could be produced by Pointer Network model and a beam search algorithm is deployed to only select the valid ones. Generally, it obtains results close to classical exact and heuristic solvers in TSP, and is considered as a breakthrough in application of machine learning model in an end-to-end approach to combinatorial optimisation problems especially the TSP.
 
 #### Neural Combinatorial Optimization with Reinforcement Learning:
 Irwan Bello et al. 2016. ICLR. (TSP, KP).  
 
-The main drawback of the work by Oriol Vinyals is tied to the supervised training approach, since optimal routes are computationally infeasible in most cases in the domain of combinatorial optimization problems due to NP-hard characteristic, or multipel routes are equally optimal. This results to a limited availability of training examples and the its performance generally depends on the quality of labeled data. In respons to this fact, Irwan Bello et at. proposed model designated as Neural Cominatorial Optimization combining neural network and reinforcement learning and reports a significant improvement on performance in Euclideam planar TSP. With a reward function designed on the tour length, the policy-based reinforcement learning components is drived to graduatly optimize the parameter within the pointer network adhering the policy gradient method ***asynchronous advantage actor-critic (A3C)*** through stochastic gradient descend paradigm. The critic compromises three components: two LSTM models where one acts as encoder and the other as process block, and one two-layer neural network with ReLu activation as decoder deepening by an additional glimpse. In addition to the greedy algorithm premarily adopted in the the first version, another two reinformence learning techniqued provide more insight into evaluation of the tour: the first is called sampling where several sampled candidate routes controled by a temperature parameter are drawn from current status and the excat shortest is chosen for the next step; the other is active search to refine the stochastic gradient policy while search on the potential solution to the processed test instance. This model outperforms not only the original Pointer Network but others widly-used solver regards to average route length and running times.  
+The main drawback of the work by Oriol Vinyals is tied to the supervised training approach, since optimal routes are computationally infeasible in most cases in the domain of combinatorial optimization problems due to NP-hard characteristic, or multipel routes are equally optimal. This results to a limited availability of training examples and the its performance generally depends on the quality of labeled data. In respons to this fact, Irwan Bello et at. proposed model designated as Neural Cominatorial Optimization combining neural network and reinforcement learning and reports a significant improvement on performance in Euclideam planar TSP. With a reward function designed on the tour length, the policy-based reinforcement learning components is drived to graduatly optimize the parameter within the pointer network adhering the policy gradient method ***asynchronous advantage actor-critic (A3C)*** through stochastic gradient descend paradigm. The critic compromises three components: two LSTM models where one acts as encoder and the other as process block, and one two-layer neural network with ReLu activation as decoder deepening by an additional glimpse. In addition to the greedy algorithm premarily adopted in the the first version, another two reinformence learning techniqued provide more insight into evaluation of the tour: the first is called sampling where several sampled candidate routes controlled by a temperature parameter are drawn from current status and the excat shortest is chosen for the next step; the other is active search to refine the stochastic gradient policy while search on the potential solution to the processed test instance. This model outperforms not only the original Pointer Network but other widly-used solvers in criteria of average route length and running times.  
 ***glimpses***:
 >  to aggregate the contributions of different parts of the input sequence...yields performance gains at an insignificant cost latency.
 
@@ -33,7 +33,7 @@ Graph(enhanced) Pointer network; large-scale TSP problem; hierarchical reinforce
 
 **hierarchical reinforcement learning formulation**: 
   lowest layer: a vanilla markov decision process providing latent variables to the next layer
-  middel layer (multi-layer structure): a RNN processing both current status and latent viriables from lower layer
+  middle layer (multi-layer structure): a RNN processing both current status and latent viriables from lower layer
   highest layer: only process latent variables from lower layer without providing latent variables.
   
   hierarchical policy gradient:
@@ -65,7 +65,7 @@ directly use the embedded output instead of the RNN hidden status
 **Attention mechanism**: the mechanism is similar to one used in *Pointer Networks*
 > the embedding and attention mechanism are invariant to the input order. 
 
-**Training model**: policy gradient approach (***use an estimate of the gradient of the expected return with respect to the policy parameters to iteratively improve the policy***) consisting two networks: an actornetwork to predict the distribution over candidates for the next step and a critic network to assess the reward given current status. Two sampling strategies: greedy and beam search, the latter leads to improved prediction at the cost of a slight increase in computation.  
+**Training model**: policy gradient approach (***use an estimate of the gradient of the expected return with respect to the policy parameters to iteratively improve the policy***) consisting two networks: an actor network to predict the distribution over candidates for the next step and a critic network to assess the reward given current status. Two sampling strategies: greedy and beam search, the latter leads to improved prediction at the cost of a slight increase in computation.  
 masking scheme: superior to classical solver to VRP, including Clarke-Wright savings heuristic (CW), the Sweep heuristic (SW), and Google’s optimization tools (OR-Tools), and is a proper tool for size-varing situation.  
 
 ### Transformer
@@ -163,10 +163,10 @@ the role of the graph neural network is divided into two parts: the first one is
 #### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case (pending)
 Paul Almasan et al. 2020， DRN+GNN
 
-#### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (pending with priority)
+#### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (pending)
 Kenshin Abe et al. 2020, RIKEN（Japan)
 
-### Message Passing Neural Networks (yet no idea)
+### Message Passing Neural Networks
 #### Neural Message Passing for Quantum Chemistry (pending)
 Justin Gilmer et al. 2017, supervised learning,
 #### Learning a SAT Solver from Single-bit Supervision (pending)
