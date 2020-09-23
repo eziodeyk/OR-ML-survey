@@ -205,7 +205,15 @@ The main point of this work locates itself in the comprensive description on the
 the graph convolutional layers works on both node-embedding features and edge-emmbedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.   
 
 #### Learning Heuristics over Large Graphs via Deep Reinforcement Learning (in process)
-
+Sahil Manchanda et al. 2020 (under preview), (influence maximization --  budget constraints)  
+The scope of further development on S2V-DQN and GCN-TREESEARCH:
+* scalability
+* generalizability to real-life combinatorial problems
+* budget constraints   
+**GCOMB**: consisting of two components: ***a GCN to prune poor nodes and learn embeddings of good nodes in a supervised manner***, and a DQN to predict solutions on the good nodes.
+> a novel probabilistic greedy mechanism...choose a node with probability proportional to its marginal gain  
+**probabilistic greedy**: to generate training samples for GCN from the solution space by ***choose a node with probability proportional to its marginal gain*** under termination condition with a minimum marginal gain contribution, which is as well learned by the embeddings from GCN.
+Two-fold destination of the GCN component: learn to identify potential noisy node on graph (noise detector) and to represent the quality of good nodes (node quality predictor under budget constraints).
 #### Learning 2-opt Heuristics for the Traveling Salesman Problem via Deep Reinforcement Learning (pending)
 
 ## category others：
