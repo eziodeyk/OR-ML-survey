@@ -71,7 +71,7 @@ masking scheme: superior to classical solver to VRP, including Clarke-Wright sav
 ### Transformer
 #### Learning Heuristics for the TSP by Policy Gradient
 Michel Deudon et al. 2018, CPAIOR, (TSP)
-The authors proposed a model originated from the Pointer Net by Ballo(2016) soly based on attention mechanisms (self-attetion, Vaswani 2017) instead of the LSTM architecture.
+The authors proposed a model originated from the Pointer Net by Ballo(2016) soly based on attention mechanisms (self-attention, Vaswani 2017) instead of the LSTM architecture.
 **The extended neural combinatorial optimization framework**:
 
 **Encoder**:  
@@ -171,7 +171,14 @@ Kenshin Abe et al. 2020, RIKEN（Japan)
 Justin Gilmer et al. 2017, supervised learning,
 
 #### Learning a SAT Solver from Single-bit Supervision (in process)
-Daniel Selsam et al. 2019, ICLR, supervised learing, (SAT)
+Daniel Selsam et al. 2019, ICLR, supervised learing, (SAT).   
+SAT: A formula of propositional logic wih n variables and m clauses is said to be satifiable if ***there exists an assignment of boolean values to its variables such that the formula evaluates to 1***.   
+> A SAT problem is a formula in CNF, where the goal is to determine if the formula is satisfiable, and if so, to produce a satisfying assignment of truth values to variables.  
+
+Given a SAT problem, the main goal is to approxiate an sufficient and necessary fomular to it, and ultimately to solve task (***"finding solutions to satisfiable problems"***).
+
+***NeuroSAT***:(an end-to-end SAT solver with good scalability):
+> parameterized by two initial vectors, three MLPs, and two layer-norm LSTMs.
 
 #### Exploratory Combinatorial Optimization with Reinforcement Learning   
 Thomas D. Barrett et al. 2020, reinforcement learning, (max-cut)
@@ -206,7 +213,7 @@ The main point of this work locates itself in the comprensive description on the
 **graph convolutional layer**:  
 the graph convolutional layers works on both node-embedding features and edge-emmbedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.   
 
-#### Learning Heuristics over Large Graphs via Deep Reinforcement Learning (in process)
+#### Learning Heuristics over Large Graphs via Deep Reinforcement Learning
 Sahil Manchanda et al. 2020 (under preview), (influence maximization --  budget constraints)  
 The scope of further development on S2V-DQN and GCN-TREESEARCH:
 * scalability
@@ -216,6 +223,7 @@ The scope of further development on S2V-DQN and GCN-TREESEARCH:
 > a novel probabilistic greedy mechanism...choose a node with probability proportional to its marginal gain  
 **probabilistic greedy**: to generate training samples for GCN from the solution space by ***choose a node with probability proportional to its marginal gain*** under termination condition with a minimum marginal gain contribution, which is as well learned by the embeddings from GCN.
 Two-fold destination of the GCN component: learn to identify potential noisy node on graph (noise detector) and to represent the quality of good nodes (node quality predictor under budget constraints).
+
 #### Learning 2-opt Heuristics for the Traveling Salesman Problem via Deep Reinforcement Learning (pending)
 
 ## category others：
