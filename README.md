@@ -170,7 +170,7 @@ Kenshin Abe et al. 2020, RIKEN（Japan)
 #### Neural Message Passing for Quantum Chemistry (pending)
 Justin Gilmer et al. 2017, supervised learning,
 
-#### Learning a SAT Solver from Single-bit Supervision (in process)
+#### Learning a SAT Solver from Single-bit Supervision (pending)
 Daniel Selsam et al. 2019, ICLR, supervised learing, (SAT).   
 SAT: A formula of propositional logic wih n variables and m clauses is said to be satifiable if ***there exists an assignment of boolean values to its variables such that the formula evaluates to 1***.   
 > A SAT problem is a formula in CNF, where the goal is to determine if the formula is satisfiable, and if so, to produce a satisfying assignment of truth values to variables.  
@@ -212,6 +212,10 @@ The main point of this work locates itself in the comprensive description on the
 **input layer**: the two-dimensional coordinates are embedded into h-dimensional vectors, the Euclidean distances of edges concated with three indicies (1 for k-nearest neighbor, 2 for self-connection, and 0 for others) to h/2-dimensional ones. It states that the input of k-nearest neighbors may contribute to speed up the convergence in TSP.  
 **graph convolutional layer**:  
 the graph convolutional layers works on both node-embedding features and edge-emmbedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.   
+
+#### End to end learning and optimization on graphs
+Bryan Wilder et al. 2019 nips, differentible approximation
+github: https://github.com/bwilder0/clusternet
 
 #### Learning Heuristics over Large Graphs via Deep Reinforcement Learning
 Sahil Manchanda et al. 2020 (under preview), (influence maximization --  budget constraints)  
