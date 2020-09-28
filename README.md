@@ -204,7 +204,7 @@ seven observations are used in Q-value to flip (?) each vertex.
 
 ### GCN
 #### An efficient graph convolutional network technique for the travelling salesman problem
-Chaitanya K. Joshi et al. 2019, supervised learning.  
+Chaitanya K. Joshi et al. 2019, supervised learning.   
 with code: https://github.com/chaitjo/graph-convnet-tsp.  
 keywords: non-autoregressive -- ***"outperforms all recently proposed autoregressive deep learning techniques"***.  
 The model takes the whole graph as input and proceed it into an adjancent matrix as the solution to the TSP. Given the ground-truth solution to graph at hand, they employed the supervised learning method by defining the loss function based on batch-averaged ***weighted binary cross-entropy***. It computes h-dimensional vectors for each node and edge on the graph, and the final edge features are projected through softmax layer into the ground-truth TSP tour.   
@@ -214,7 +214,7 @@ The main point of this work locates itself in the comprensive description on the
 the graph convolutional layers works on both node-embedding features and edge-emmbedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.   
 
 #### End to end learning and optimization on graphs
-Bryan Wilder et al. 2019 nips, differentible approximation
+Bryan Wilder et al. 2019 nips, differentible approximation.  
 github: https://github.com/bwilder0/clusternet
 
 #### Learning Heuristics over Large Graphs via Deep Reinforcement Learning
