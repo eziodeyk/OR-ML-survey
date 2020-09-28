@@ -117,9 +117,6 @@ utilize a rollout-baseline similiar to self-critical training ***but with period
 >  b(s) is the cost of a solution from a deterministic greedy rollout of the policy defined by the best model so far  
 to determine the baseline policy, they keep the greedy rollout policy unchanged within each epoch (a fixed number of steps), and replace the parameter at the end of each epoch if a significant improvement is verified by the t-test. 
 
-(quoted)  
-![](https://github.com/eziodeyk/OR-ML-survey/blob/master/attention-REINFORCE%20with%20Rollout%20Baseline.jpg)
-
 (dont' get it clearly)  
 **performance**: less optimal than the state-of-the-art solvers such as LKH3 and Gurobi but show advantage in convergence speed.
 
@@ -213,9 +210,24 @@ The main point of this work locates itself in the comprensive description on the
 **graph convolutional layer**:  
 the graph convolutional layers works on both node-embedding features and edge-emmbedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.   
 
-#### End to end learning and optimization on graphs
-Bryan Wilder et al. 2019 nips, differentible approximation.  
-github: https://github.com/bwilder0/clusternet
+#### End to end learning and optimization on graphs （in process)
+Bryan Wilder et al. 2019 nips, differentible approximation. 
+github: https://github.com/bwilder0/clusternet.  
+> include more structure via a differentiable k-means layer instead of using more generic tools (e.g., feed-forward or attention layers)...use a differentiable approximation to the objective which removes the need for a policy gradient estimator.   
+In most common approaches, model is responsible to rebuild the unknown ground-truth adjancent matrix from known ones training data by minimizing the handcrafted loss function. By constrast, the paper presents an end-to-end model directly mapping the known adjancent matrix to a ***feasible*** decision.
+Two pipages:
+**Forward pass**: 
+> "a soft-min assignment of each point to the cluster centers based 􏰁on distance"
+**Backward pass**:
+Two approaches: exact backward pass and approximate backward pass.  
+Two classes of combinatorial optimization problem: partition; subset selection.  
+Experimental Part:
+Two problems: learning(***observe a partial graph and aim to infer which unobserved edges are present***), optimization(***community detection, facility location***)
+Respectively, two baselines:   
+**baseline learning method**: firstly initiate with 2-layer GCN for node embedding; compare three families of baselines: GCN-2stage, “train”, GCN-e2e
+The best result is emperically obtained with 2-layer GCN.
+**baseline optimization method**:？？？
+
 
 #### Learning Heuristics over Large Graphs via Deep Reinforcement Learning
 Sahil Manchanda et al. 2020 (under preview), (influence maximization --  budget constraints)  
