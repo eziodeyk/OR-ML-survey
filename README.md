@@ -120,11 +120,12 @@ to determine the baseline policy, they keep the greedy rollout policy unchanged 
 (dont' get it clearly)  
 **performance**: less optimal than the state-of-the-art solvers such as LKH3 and Gurobi but show advantage in convergence speed.
 
-
+#### A Deep Reinforcement Learning Algorithm Using Dynamic Attention Model for Vehicle Routing Problems
+Bo Peng et al. 2020, (SYSU), (VRP)
 ## category graph: 
 ### GNN
 #### A Note on Learning Algorithms for Quadratic Assignment with Graph Neural Networks  
-Alex Nowak  et al. 2017, PMLR (graph matching, TSP)  
+Alex Nowak  et al. 2017, PMLR, (graph matching, TSP)  
 In this work, researchers try to directly use a ***siamese*** GNN to process two given graphs into embedding features and predict matching basd on these features.
 (It's mentioned in the paper that there are two approaches to train models: ground-truth based and cost based.) The auther stated promising results through supervised learning, and its performance on TSP is slightly less optimal than Pointer Network. The main drawback of this modeli ***the need for expensive ground truth examples*** and the gap to the optimal solver is hypethetically due to the model architecture.
 
@@ -161,7 +162,13 @@ the role of the graph neural network is divided into two parts: the first one is
 Paul Almasan et al. 2020， DRN+GNN
 
 #### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (pending)
-Kenshin Abe et al. 2020, RIKEN（Japan)
+Kenshin Abe et al. 2020, RIKEN
+
+#### Graph Colouring Meets Deep Learning- Effective Graph Neural Network Models for Combinatorial Problems (pending)
+Henrique Lemos et al. 2019, (graph coloring)
+
+#### Fast Detection of Maximum Common Subgraph via Deep Q-Learning (pending):
+Yunsheng Bai et al.  2020, Deep Q-learning, (Maximum Common Subbgraph -- MCS)
 
 ### Message Passing Neural Networks
 #### Neural Message Passing for Quantum Chemistry (pending)
@@ -240,7 +247,27 @@ The scope of further development on S2V-DQN and GCN-TREESEARCH:
 **probabilistic greedy**: to generate training samples for GCN from the solution space by ***choose a node with probability proportional to its marginal gain*** under termination condition with a minimum marginal gain contribution, which is as well learned by the embeddings from GCN.
 Two-fold destination of the GCN component: learn to identify potential noisy node on graph (noise detector) and to represent the quality of good nodes (node quality predictor under budget constraints).
 
-#### Learning 2-opt Heuristics for the Traveling Salesman Problem via Deep Reinforcement Learning (pending)
+#### Learning 2-opt Heuristics for the Traveling Salesman Problem via Deep Reinforcement Learning (in process)
+Paulo Roberto et al. 2020, (TSP)  
+**"Policy Gradient Neural Architecture**:A policy neural network with a pointing attention mechanism   
+**Encoder**:   
+element embedding from Graph Convolutional Network and sequence embedding from Recurrent Neural Network -- embedding layer copes with two dimensional coordinates of nodes, and then transmits them into GCN layer, which ***"leverages node features with the additional edge feature representation"***;   
+**Sequence Embedding Layers**   
+Two LSTM models (one in forward manner and one in backward) process the output from GCN model as features in **each** layer and colletively form ***unique node representations in a tour***;  
+**Dual Encoding Mechanism**:  
+Each status S_t bar is in form of tuple consisting of the current route as well as the best solution ever encountered with minimum cost (NB: current solution may not follow the minimum-cost criteria).  
+
+**Decoders**: policy decoder and value decoder.   
+**policy decoder**: 
+> "given a status...assigns high probabilities to moves that reduce the cost of a tour."   
+
+They use ***"individual softmax functions to represent each*** multiplicative term in the factorized probability of a k-opt move. The query vector at one step is reccursively obtained additionally with the sequence output. And ultimately a Pointing mechanism is  to ***predict a distribution over node outputs given encoded actions (nodes) and a state representation (query vector)***.   
+
+**value encoder**:  
+> "reading tour repre- sentations from S and S′ and a graph representation from S"
+
+**policy gradient optimization**:
+???
 
 ## category others：
 
