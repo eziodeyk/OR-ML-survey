@@ -127,7 +127,7 @@ Bo Peng et al. 2020, (SYSU), (VRP)
 #### A Note on Learning Algorithms for Quadratic Assignment with Graph Neural Networks  
 Alex Nowak  et al. 2017, PMLR, (graph matching, TSP)  
 In this work, researchers try to directly use a ***siamese*** GNN to process two given graphs into embedding features and predict matching basd on these features.
-(It's mentioned in the paper that there are two approaches to train models: ground-truth based and cost based.) The auther stated promising results through supervised learning, and its performance on TSP is slightly less optimal than Pointer Network. The main drawback of this modeli ***the need for expensive ground truth examples*** and the gap to the optimal solver is hypethetically due to the model architecture.
+(It states that there are two approaches to train models: ground-truth based and cost based.) The auther stated promising results through supervised learning, and its performance on TSP is slightly less optimal than Pointer Network. The main drawback of this modeli ***the need for expensive ground truth examples*** and the gap to the optimal solver is hypethetically due to the model architecture.
 
 #### Learning Combinatorial Optimization Algorithms over Graph.  
 Hanjun Dai et al. 2017, nips, TSP  
