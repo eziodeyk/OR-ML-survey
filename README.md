@@ -127,18 +127,18 @@ Bo Peng et al. 2020, (SYSU), (VRP)
 #### A Note on Learning Algorithms for Quadratic Assignment with Graph Neural Networks  
 Alex Nowak  et al. 2017, PMLR, (graph matching, TSP)  
 In this work, researchers try to directly use a ***siamese*** GNN to process two given graphs into embedding features and predict matching basd on these features.
-(It states that there are two approaches to train models: ground-truth based and cost based.) The auther stated promising results through supervised learning, and its performance on TSP is slightly less optimal than Pointer Network. The main drawback of this modeli ***the need for expensive ground truth examples*** and the gap to the optimal solver is hypethetically due to the model architecture.
+(It states that there are two approaches to train models: ground-truth based and cost based.) The auther stated promising results through supervised learning, and its performance on TSP is slightly less optimal than Pointer Network. The main drawback of this model is ***the need for expensive ground truth examples*** and the gap to the optimal solver is hypothetically due to the model architecture.
 
 #### Learning Combinatorial Optimization Algorithms over Graph.  
 Hanjun Dai et al. 2017, nips, TSP  
-This is a work of conerstone for introducing the graph embedding and deep reinforcement learning into the domain of the cobinatorial optimization and a benchmark for most later researches. The authors introduce a graph embedding network called structure2vec to abstract information on the graph structure and node covariates into embedding feature vectors. These feature vectors are transmitted to the approximated evaluation function. A reinforcement learing method called Q-learning is deemed as the natural choice to parameterize the Q function.  
+This is a work of connerstone for the art of introducing the graph embedding and deep reinforcement learning into the domain of the combinatorial optimization and a benchmark for later researches. The authors introduce a graph embedding network called structure2vec to abstract information on the graph structure and node covariates into embedding feature vectors. These feature vectors are transmitted to the approximated evaluation function. A reinforcement learning method called Q-learning is deemed as the natural choice to parameterize the Q function.  
 **structure-to-vec**:  
 > the computation graph of structure2vec is inspired by graphical model inference algorithms, where node-specific tags or features x are aggregated recursively according to G’s graph topology. The node specific features as well as long-distance interaction is considered in the model through reccursive computation.
 
 parameterization: embed three parts of information including the binary scalar (or other useful node information), the neighborhood embedding, and weights of adjacent links; then feed output into the Q function.  
-**Q-learning**:
+**Q-learning**:   
 policy: a deterministic greedy policy is to select the node on the remaining part of the graph that results to cellect reward.  
-learning algorithm:  
+learning algorithm:   
 > a combination of n-step Q-learning (off policy, value-based, help to deal with delayed rewards, the procedure of waiting n steps before updating the approximator's -- Q-hat's -- parameters ) and fitted Q-iteration (uses experience replay; is shown to result in faster learning convergence when using a neural network as a function approximator; stochastic gradient descent updates are performed on a randome sample drawn from E ).  
 **training and experimental performance**:  
 > The hyperparameters are selected via preliminary results on small graphs, and then fixed for large ones; train the model on graphs with up to 500 nodes.  
@@ -158,8 +158,12 @@ the role of the graph neural network is divided into two parts: the first one is
 
 **performance**:???
 
-#### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case (pending)
-Paul Almasan et al. 2020， DRN+GNN
+#### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case (in process)   
+Paul Almasan et al. 2020, DRL+GNN, (optical transport networks: ***as a classical resource allocation problem in network***)
+A SDN-based Optical Transport Network under Deep Q-learing framework: ***"use a DNN as the q-value function estimator"***.   
+The DRL agent follows DQN algorithm where a DQN models the q-value function in message passing architecture:   
+> an iterative message passing process runs between the link hidden states according to the graph structure    
+
 
 #### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (pending)
 Kenshin Abe et al. 2020, RIKEN
@@ -167,8 +171,22 @@ Kenshin Abe et al. 2020, RIKEN
 #### Graph Colouring Meets Deep Learning- Effective Graph Neural Network Models for Combinatorial Problems (pending)
 Henrique Lemos et al. 2019, (graph coloring)
 
-#### Fast Detection of Maximum Common Subgraph via Deep Q-Learning (pending):
-Yunsheng Bai et al.  2020, Deep Q-learning, (Maximum Common Subbgraph -- MCS)
+#### Fast Detection of Maximum Common Subgraph via Deep Q-Learning (in progress):
+Yunsheng Bai et al.  2020, Deep Q-learning, (Maximum Common Subbgraph -- MCS)   
+Background:  exact MCS solvers do not have worst-case time complexity guarantee and cannot handle large graphs in practice   
+RLMCS: a graph neural network (joint subgraph-node embedding) based Deep Q-learning Model.  
+In addition with a Fast Iterative Graph Isomorphism algorithm for graph isomorphism checking.
+
+**Policy Network**:   
+* consisting of a graph embedding network and a deep Q-network (mainNet for current Q-value, targetNet for target Q-value, experience replay ***to alleviate the problems of correlated data and non-stationary distributions***, update the targetNet by copying from the mainNet every N timesteps)    
+* joint subgraph-node embedding for embedding generation: ***produces the embeddings of all the nodes and the subgraph jointly***
+
+**Action Prediction**:   
+concatenate node embeddings, subgraph embeddings, and graph-level embeddings generated by JSNE as input into a multi-layer to predict Q-values
+
+**Subgraph Exploration Tree** inspired by beam search, use a beam size to guide search from current status.
+
+**performance**: compared with other three groups, namely exact solvers, supervised models, and unsupervised models.
 
 ### Message Passing Neural Networks
 #### Neural Message Passing for Quantum Chemistry (pending)
