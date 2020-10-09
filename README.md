@@ -158,7 +158,7 @@ the role of the graph neural network is divided into two parts: the first one is
 
 **performance**:???
 
-#### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case (checked)   
+#### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case   
 Paul Almasan et al. 2020, DRL+GNN, (optical transport networks: ***as a classical resource allocation problem in network***)  
 https://github.com/knowledgedefinednetworking    
 A SDN-based Optical Transport Network under Deep Q-learing framework: ***"use a DNN as the q-value function estimator"***.   
@@ -228,7 +228,7 @@ seven observations are used in Q-value to flip (?) each vertex.
 ### GCN
 #### An efficient graph convolutional network technique for the travelling salesman problem
 Chaitanya K. Joshi et al. 2019, supervised learning.   
-with code: https://github.com/chaitjo/graph-convnet-tsp.  
+github: https://github.com/chaitjo/graph-convnet-tsp.  
 keywords: non-autoregressive -- ***"outperforms all recently proposed autoregressive deep learning techniques"***.  
 The model takes the whole graph as input and proceed it into an adjancent matrix as the solution to the TSP. Given the ground-truth solution to graph at hand, they employed the supervised learning method by defining the loss function based on batch-averaged ***weighted binary cross-entropy***. It computes h-dimensional vectors for each node and edge on the graph, and the final edge features are projected through softmax layer into the ground-truth TSP tour.   
 The main point of this work locates itself in the comprensive description on the structure of its GCN model, which consists of two types of layers: the input layer and convolutional layer.  
@@ -237,7 +237,7 @@ The main point of this work locates itself in the comprensive description on the
 the graph convolutional layers works on both node-embedding features and edge-emmbedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.   
 
 #### End to end learning and optimization on graphs （in process)
-Bryan Wilder et al. 2019 nips, differentible approximation. 
+Bryan Wilder et al. 2019 nips, differentible approximation.   
 github: https://github.com/bwilder0/clusternet.  
 > include more structure via a differentiable k-means layer instead of using more generic tools (e.g., feed-forward or attention layers)...use a differentiable approximation to the objective which removes the need for a policy gradient estimator.   
 In most common approaches, model is responsible to rebuild the unknown ground-truth adjancent matrix from known ones training data by minimizing the handcrafted loss function. By constrast, the paper presents an end-to-end model directly mapping the known adjancent matrix to a ***feasible*** decision.
@@ -266,7 +266,7 @@ The scope of further development on S2V-DQN and GCN-TREESEARCH:
 **probabilistic greedy**: to generate training samples for GCN from the solution space by ***choose a node with probability proportional to its marginal gain*** under termination condition with a minimum marginal gain contribution, which is as well learned by the embeddings from GCN.
 Two-fold destination of the GCN component: learn to identify potential noisy node on graph (noise detector) and to represent the quality of good nodes (node quality predictor under budget constraints).
 
-#### Learning 2-opt Heuristics for the Traveling Salesman Problem via Deep Reinforcement Learning (in process)
+#### Learning 2-opt Heuristics for the Traveling Salesman Problem via Deep Reinforcement Learning
 Paulo Roberto et al. 2020, (TSP)  
 **"Policy Gradient Neural Architecture**:A policy neural network with a pointing attention mechanism   
 **Encoder**:   
