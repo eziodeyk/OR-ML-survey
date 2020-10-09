@@ -158,12 +158,13 @@ the role of the graph neural network is divided into two parts: the first one is
 
 **performance**:???
 
-#### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case (in process)   
-Paul Almasan et al. 2020, DRL+GNN, (optical transport networks: ***as a classical resource allocation problem in network***)
+#### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case (checked)   
+Paul Almasan et al. 2020, DRL+GNN, (optical transport networks: ***as a classical resource allocation problem in network***)  
+https://github.com/knowledgedefinednetworking    
 A SDN-based Optical Transport Network under Deep Q-learing framework: ***"use a DNN as the q-value function estimator"***.   
 The DRL agent follows DQN algorithm where a DQN models the q-value function in message passing architecture:   
 > an iterative message passing process runs between the link hidden states according to the graph structure    
-
+Evaluation: compared to other state-of-the-art models (two kinds of graph topology -- the 14-node NSFNet topology and the 24-node Geant2 : trained on one of them and tested on the other one) including ***a state-of-the-art DRL-based solution, a load balancing routing policy, and a theoretical fluid model***.
 
 #### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (pending)
 Kenshin Abe et al. 2020, RIKEN
