@@ -12,10 +12,12 @@
 
 ### RNN
 #### Learning Permutations with Sinkhorn Policy Gradient (pending)
-
+Patrick Emami et al. 2018. (sorting, Euclidean TSP, MWM - maximum weight matching)    
+GRU + sinkhorn layer with sinkhorn policy gradient.  
+model targets on permutation-like problems such as sorting, Eucilidean TSP, MWM, and so on.
 ### PN
 #### Pointer Networks：
-Oriol Vinyals et al. 2015.  NIPS, (TSP, convex hall, delaunay triangulation).  
+Oriol Vinyals et al. 2015. NIPS. (TSP, convex hall, delaunay triangulation).  
 
 A sequence-to-sequence model with modified attention mechanism where the output is in form of a distribution over all elements of the input. It delivers solutions to a set of problems that the size of output dictionary depends on the length of input. It is typical in combinatorial optimization problem and the conventional attention mechanism has limit on efficiency in tackling such type of problem. The novelty in this model, the "Pointer", refers to the neural network using attention mechanism with a soft-max layer generating a probability distribution function on the input from hidden status in both encoder and decoder. To demonstrate its performance, they conduct experiments on three classical geometric problems: convex hall problem, Delaunay triangulation problem, and traveling salesman problem. The Pointer Network is reported to show improvement in performance on all three problems in small sets compared to previous machine learning methods while fails in large-scale Delaunay triangulation problems. More importantly, invalid tours could be produced by Pointer Network model and a beam search algorithm is deployed to only select the valid ones. Generally, it obtains results close to classical exact and heuristic solvers in TSP, and is considered as a breakthrough in application of machine learning model in an end-to-end manner to combinatorial optimization problems especially the TSP.
 
@@ -67,6 +69,10 @@ directly use the embedded output instead of the RNN hidden status
 
 **Training model**: policy gradient approach (***use an estimate of the gradient of the expected return with respect to the policy parameters to iteratively improve the policy***) consisting two networks: an actor network to predict the distribution over candidates for the next step and a critic network to assess the reward given current status. Two sampling strategies: greedy and beam search, the latter leads to improved prediction at the cost of a slight increase in computation.  
 masking scheme: superior to classical solver to VRP, including Clarke-Wright savings heuristic (CW), the Sweep heuristic (SW), and Google’s optimization tools (OR-Tools), and is a proper tool for size-varing situation.  
+
+#### Learning Improvement Heuristics for Solving Routing Problems 
+Yaoxin Wu et al. 2020. RL with attention-based policy network + 2-opt. (TSP + CVRP).   
+
 
 ### Transformer
 #### Learning Heuristics for the TSP by Policy Gradient
@@ -122,6 +128,11 @@ to determine the baseline policy, they keep the greedy rollout policy unchanged 
 
 #### A Deep Reinforcement Learning Algorithm Using Dynamic Attention Model for Vehicle Routing Problems
 Bo Peng et al. 2020, (SYSU), (VRP)
+
+#### Learning to Solve Vehicle Routing Problems with Time Windows through Joint Attention (pending)
+Jonas K. Falkner et al, 2020, (CVRP, CVRP-TW)
+encoder-decoder architecture with multi-head attention mechanism
+
 ## category graph: 
 ### GNN
 #### A Note on Learning Algorithms for Quadratic Assignment with Graph Neural Networks  
@@ -166,13 +177,18 @@ The DRL agent follows DQN algorithm where a DQN models the q-value function in m
 > an iterative message passing process runs between the link hidden states according to the graph structure    
 Evaluation: compared to other state-of-the-art models (two kinds of graph topology -- the 14-node NSFNet topology and the 24-node Geant2 : trained on one of them and tested on the other one) including ***a state-of-the-art DRL-based solution, a load balancing routing policy, and a theoretical fluid model***.
 
-#### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (pending)
-Kenshin Abe et al. 2020, RIKEN
+#### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (in process)   
+Kenshin Abe et al. 2020, RIKEN.  
+MCTS to train the deep neural network; combined with Graph Neural Network (including 2-IGN+, GIN, GCN, S2V) in the second phase.   
+**algorithm**:   
+MCTS search tree: similiar to MCTS in addition with **the mean and the standard deviation of the results by random plays** stored in nodes.   
+MCTS: each iteration contains three parts -- select, expand, and backup...   
+
 
 #### Graph Colouring Meets Deep Learning- Effective Graph Neural Network Models for Combinatorial Problems (pending)
 Henrique Lemos et al. 2019, (graph coloring)
 
-#### Fast Detection of Maximum Common Subgraph via Deep Q-Learning (in progress):
+#### Fast Detection of Maximum Common Subgraph via Deep Q-Learning:
 Yunsheng Bai et al.  2020, Deep Q-learning, (Maximum Common Subbgraph -- MCS)   
 Background:  exact MCS solvers do not have worst-case time complexity guarantee and cannot handle large graphs in practice   
 RLMCS: a graph neural network (joint subgraph-node embedding) based Deep Q-learning Model.  
@@ -240,19 +256,20 @@ the graph convolutional layers works on both node-embedding features and edge-em
 Bryan Wilder et al. 2019 nips, differentible approximation.   
 github: https://github.com/bwilder0/clusternet.  
 > include more structure via a differentiable k-means layer instead of using more generic tools (e.g., feed-forward or attention layers)...use a differentiable approximation to the objective which removes the need for a policy gradient estimator.   
-In most common approaches, model is responsible to rebuild the unknown ground-truth adjancent matrix from known ones training data by minimizing the handcrafted loss function. By constrast, the paper presents an end-to-end model directly mapping the known adjancent matrix to a ***feasible*** decision.
-Two pipages:
-**Forward pass**: 
-> "a soft-min assignment of each point to the cluster centers based 􏰁on distance"
-**Backward pass**:
-Two approaches: exact backward pass and approximate backward pass.  
+In most common approaches, model is responsible to rebuild the unknown ground-truth adjancent matrix from known ones training data by minimizing the handcrafted loss function. By constrast, the paper presents an end-to-end model directly mapping the known adjancent matrix to a ***feasible*** decision.   
+Two pipages:  
+**Forward pass**:  
+> "a soft-min assignment of each point to the cluster centers based 􏰁on distance".  
+
+**Backward pass**:  
+Two approaches: exact backward pass and approximate backward pass.   
 Two classes of combinatorial optimization problem: partition; subset selection.  
-Experimental Part:
-Two problems: learning(***observe a partial graph and aim to infer which unobserved edges are present***), optimization(***community detection, facility location***)
+Experimental Part:  
+Two problems: learning(***observe a partial graph and aim to infer which unobserved edges are present***), optimization(***community detection, facility location***). 
 Respectively, two baselines:   
 **baseline learning method**: firstly initiate with 2-layer GCN for node embedding; compare three families of baselines: GCN-2stage, “train”, GCN-e2e
-The best result is emperically obtained with 2-layer GCN.
-**baseline optimization method**:？？？
+The best result is emperically obtained with 2-layer GCN.  
+**baseline optimization method**:？？？ 
 
 
 #### Learning Heuristics over Large Graphs via Deep Reinforcement Learning
