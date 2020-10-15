@@ -189,7 +189,7 @@ the role of the graph neural network is divided into two parts: the first one is
 
 #### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case   
 Paul Almasan et al. 2020, DRL+GNN, (optical transport networks: ***as a classical resource allocation problem in network***)  
-https://github.com/knowledgedefinednetworking    
+github: https://github.com/knowledgedefinednetworking    
 A SDN-based Optical Transport Network under Deep Q-learing framework: ***"use a DNN as the q-value function estimator"***.   
 The DRL agent follows DQN algorithm where a DQN models the q-value function in message passing architecture:   
 > an iterative message passing process runs between the link hidden states according to the graph structure    
@@ -240,7 +240,7 @@ Given a SAT problem, the main goal is to approxiate an sufficient and necessary 
 
 #### Exploratory Combinatorial Optimization with Reinforcement Learning   
 Thomas D. Barrett et al. 2020, reinforcement learning, (max-cut)  
-github:https://github.com/tomdbar/eco-dqn  
+github: https://github.com/tomdbar/eco-dqn  
 Thomas D. Barrett et al. 2020, reinforcement learning, (max-cut)   
 ECO-DQN: exploratory combinatorial optimization - Deep Q-Network.  
 concepts: 
