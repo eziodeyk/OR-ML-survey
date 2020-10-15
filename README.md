@@ -148,15 +148,9 @@ A single-head attention layer is ***“a convex combination of linearly transfor
 **Decoder**: an attention layer with multi-head attention inputs and masked sequence.
 **JAMPR**: node encoder as described above in addition with tour encoder and vehicle encoder, all together provide context embeddings (graph, fleet, act, node, and last) and sequence embedding (vehicle and nodes)
 
-## category graph: 
-### GNN
-#### Revised Note on Learning Algorithms for Quadratic Assignment with Graph Neural Networks  
-Alex Nowak  et al. 2017, PMLR, (graph matching, TSP)  
-github: https://github.com/alexnowakvila/QAP_pt    
-In this work, researchers try to directly use a ***siamese*** GNN to process two given graphs into embedding features and predict matching basd on these features.
-(It states that there are two approaches to train models: ground-truth based and cost based.) The auther stated promising results through supervised learning, and its performance on TSP is slightly less optimal than Pointer Network. The main drawback of this model is ***the need for expensive ground truth examples*** and the gap to the optimal solver is hypothetically due to the model architecture.
-
-#### Learning Combinatorial Optimization Algorithms over Graph.  
+## category graph:  
+### embedding:   
+#### Learning Combinatorial Optimization Algorithms over Graph.   
 Hanjun Dai et al. 2017, nips, TSP  
 github: https://github.com/Hanjun-Dai/graph_comb_opt   
 This is a work of connerstone for the art of introducing the graph embedding and deep reinforcement learning into the domain of the combinatorial optimization and a benchmark for later researches. The authors introduce a graph embedding network called structure2vec to abstract information on the graph structure and node covariates into embedding feature vectors. These feature vectors are transmitted to the approximated evaluation function. A reinforcement learning method called Q-learning is deemed as the natural choice to parameterize the Q function.  
@@ -175,6 +169,13 @@ in comparison to pointer network with actor-critic algorithm:
 
 the model trained on small-scale graphs could be well generalized to large-scale ones with up to 1k nodes.  
 
+### GNN
+#### Revised Note on Learning Algorithms for Quadratic Assignment with Graph Neural Networks  
+Alex Nowak  et al. 2017, PMLR, (graph matching, TSP)  
+github: https://github.com/alexnowakvila/QAP_pt    
+In this work, researchers try to directly use a ***siamese*** GNN to process two given graphs into embedding features and predict matching basd on these features.
+(It states that there are two approaches to train models: ground-truth based and cost based.) The auther stated promising results through supervised learning, and its performance on TSP is slightly less optimal than Pointer Network. The main drawback of this model is ***the need for expensive ground truth examples*** and the gap to the optimal solver is hypothetically due to the model architecture.
+
 
 #### Learning to Solve NP-Complete Problems: A Graph Neural Network for Decision TSP
 Marcelo Prates et al. 2019, AAAI, (TSP)   
@@ -182,7 +183,7 @@ github: https://github.com/machine-reasoning-ufrgs/TSP-GNN
 ***The GNN model for TSP***:
 the role of the graph neural network is divided into two parts: the first one is to ***assgin a multidimensional embedding to each vertex***; and the second is to ***perform a given number of message-passing iterations*** (where the embedding of each node is transmitted to its adjacencies as their incoming messages). Those incoming messages are added up and fed into a RNN. ***The only trainable parameters of such a model are the message computing modules and the RNN***.   
 **For the TSP**
-**additionally assign embedding to edges** for the information about edge weights, replace the vertex-to-vertex adjacency matrix with an edge-to-vertex matrix adjacency matrix connecting each edge to its source and target vertices; the given target cost C together with the weight of the edge are concatated and fed into a multi-layer perceptron to be expended into the initial embedding for that edge after a given number of iterations.
+**additionally assign embedding to edges** for the information about edge weights, replace the vertex-to-vertex adjacency matrix with an edge-to-vertex matrix adjacency matrix connecting each edge to its source and target vertices; the given target cost C together with the weight of the edge are concatenated and fed into a multi-layer perceptron to be expended into the initial embedding for that edge after a given number of iterations.   
 >finally the refined edge embeddings are fed into an MLP which computes a logit probability corresponding to the model’s prediction of the answer to the decision problem
 
 **performance**:???
@@ -193,7 +194,7 @@ github: https://github.com/knowledgedefinednetworking
 A SDN-based Optical Transport Network under Deep Q-learing framework: ***"use a DNN as the q-value function estimator"***.   
 The DRL agent follows DQN algorithm where a DQN models the q-value function in message passing architecture:   
 > an iterative message passing process runs between the link hidden states according to the graph structure    
-Evaluation: compared to other state-of-the-art models (two kinds of graph topology -- the 14-node NSFNet topology and the 24-node Geant2 : trained on one of them and tested on the other one) including ***a state-of-the-art DRL-based solution, a load balancing routing policy, and a theoretical fluid model***.
+Evaluation: compared to other state-of-the-art models (two kinds of graph topology -- the 14-node NSFNet topology and the 24-node Geant2 : trained on one of them and tested on the other one) including ***a state-of-the-art DRL-based solution, a load balancing routing policy, and a theoretical fluid model***.    
 
 #### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (pending)   
 Kenshin Abe et al. 2020, RIKEN.  
