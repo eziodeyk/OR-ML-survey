@@ -162,6 +162,8 @@ parameterization: embed three parts of information including the binary scalar (
 policy: a deterministic greedy policy is to select the node on the remaining part of the graph that results to cellect reward.  
 learning algorithm:   
 > a combination of n-step Q-learning (off policy, value-based, help to deal with delayed rewards, the procedure of waiting n steps before updating the approximator's -- Q-hat's -- parameters ) and fitted Q-iteration (uses experience replay; is shown to result in faster learning convergence when using a neural network as a function approximator; stochastic gradient descent updates are performed on a randome sample drawn from E ).  
+
+summary: n-step Q-learning to alleviate the curse of being ***myopic*** with greedy policy; fitted Q-iteration for ***fast learning convergence***; supervised learning method for sample efficiency.
 **training and experimental performance**:  
 > The hyperparameters are selected via preliminary results on small graphs, and then fixed for large ones; train the model on graphs with up to 500 nodes.  
 in comparison to pointer network with actor-critic algorithm:     
