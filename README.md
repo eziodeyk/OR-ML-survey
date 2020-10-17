@@ -171,6 +171,45 @@ in comparison to pointer network with actor-critic algorithm:
 
 the model trained on small-scale graphs could be well generalized to large-scale ones with up to 1k nodes.  
 
+### Message Passing Neural Networks
+#### Neural Message Passing for Quantum Chemistry (pending)
+Justin Gilmer et al. 2017, supervised learning,  
+github: https://github.com/microsoft/tf-gnn-samples   
+
+#### Learning a SAT Solver from Single-bit Supervision (in process)
+Daniel Selsam et al. 2019, ICLR, supervised learing, (SAT).   
+SAT: A formula of propositional logic wih n variables and m clauses is said to be satifiable if ***there exists an assignment of boolean values to its variables such that the formula evaluates to 1***.   
+> A SAT problem is a formula in CNF, where the goal is to determine if the formula is satisfiable, and if so, to produce a satisfying assignment of truth values to variables.  
+
+Given a SAT problem, the main goal is to approxiate an sufficient and necessary fomular to it, and ultimately to solve task (***"finding solutions to satisfiable problems"***).
+
+***NeuroSAT***:(an end-to-end SAT solver with good scalability):
+> parameterized by two initial vectors, three MLPs, and two layer-norm LSTMs.
+
+#### Exploratory Combinatorial Optimization with Reinforcement Learning   
+Thomas D. Barrett et al. 2020, reinforcement learning, (max-cut)  
+github: https://github.com/tomdbar/eco-dqn  
+Thomas D. Barrett et al. 2020, reinforcement learning, (max-cut)   
+ECO-DQN: exploratory combinatorial optimization - Deep Q-Network.  
+
+* Q-learning:  
+**policy**: a map from a state to a distribution probability over action.  
+**value function**: given a state-action pair, its Q-value is ***the discounted sum of immediate and future rewards*** starting from the initial state & action and following the optimal policy.   
+**deep Q-network**: a function with parameters to approximate the maximum of Q-value following the optimal policy. **Once trained, an approximation of the optimal policy can be obtained simply by acting greedily with respect to the predicted Q-values**.  
+***explore the solution space at test time, rather than producing only a single “best-guess”***
+**message passing neural network**: use the MPNN as the deep Q-network in the model -- ***a general framework of which many common graph networks are specific implementations***.  
+It embedds each vertex in the graph into a n-dimensional features in the following way: the input vector of observation is firstly initialised by the a function and then iteratively updated one node at a time with information from neighbors through message and update functions.  
+
+**exploiting exploration (yet unclear: it feels like )**: ***trained to explore the solution space at test time** (???).   
+***the Q-value of either adding or removing a vertex from the solution is continually re-evaluated in the context of the episode’s history. Additionally, as all actions can be reversed***
+
+* reward shaping:   
+** to find the best solution with highest cut-value without punishment when choose an action reducing the cut-value.  
+** normalised by the total number of vertices.  
+* observations:
+seven observations are used in Q-value to flip (?) each vertex.
+> ECO-DQN ≡ S2V-DQN+RevAct+ObsTun+IntRew
+
 ### GNN
 #### Revised Note on Learning Algorithms for Quadratic Assignment with Graph Neural Networks  
 Alex Nowak  et al. 2017, PMLR, (graph matching, TSP)  
@@ -226,44 +265,6 @@ concatenate node embeddings, subgraph embeddings, and graph-level embeddings gen
 
 **performance**: compared with other three groups, namely exact solvers, supervised models, and unsupervised models.
 
-### Message Passing Neural Networks
-#### Neural Message Passing for Quantum Chemistry (pending)
-Justin Gilmer et al. 2017, supervised learning,  
-github: https://github.com/microsoft/tf-gnn-samples   
-
-#### Learning a SAT Solver from Single-bit Supervision (in process)
-Daniel Selsam et al. 2019, ICLR, supervised learing, (SAT).   
-SAT: A formula of propositional logic wih n variables and m clauses is said to be satifiable if ***there exists an assignment of boolean values to its variables such that the formula evaluates to 1***.   
-> A SAT problem is a formula in CNF, where the goal is to determine if the formula is satisfiable, and if so, to produce a satisfying assignment of truth values to variables.  
-
-Given a SAT problem, the main goal is to approxiate an sufficient and necessary fomular to it, and ultimately to solve task (***"finding solutions to satisfiable problems"***).
-
-***NeuroSAT***:(an end-to-end SAT solver with good scalability):
-> parameterized by two initial vectors, three MLPs, and two layer-norm LSTMs.
-
-#### Exploratory Combinatorial Optimization with Reinforcement Learning   
-Thomas D. Barrett et al. 2020, reinforcement learning, (max-cut)  
-github: https://github.com/tomdbar/eco-dqn  
-Thomas D. Barrett et al. 2020, reinforcement learning, (max-cut)   
-ECO-DQN: exploratory combinatorial optimization - Deep Q-Network.  
-concepts: 
-* Q-learning:  
-**policy**: a map from a state to a distribution probability over action.  
-**value function**: given a state-action pair, its Q-value is ***the discounted sum of immediate and future rewards*** starting from the initial state & action and following the optimal policy.   
-**deep Q-network**: a function with parameters to approximate the maximum of Q-value following the optimal policy. **Once trained, an approximation of the optimal policy can be obtained simply by acting greedily with respect to the predicted Q-values**.  
-***explore the solution space at test time, rather than producing only a single “best-guess”***
-**message passing neural network**: use the MPNN as the DPN in the model -- ***a general framework of which many common graph networks are specific implementations***.  
-It embedds each vertex in the graph into a n-dimensional features in the following way: the input vector of observation is firstly initialised by the a function and then iteratively updated one node at a time with information from neighbors through message and update functions.  
-
-**exploiting exploration (yet unclear: it feels like )**: ***trained to explore the solution space at test time** (???).   
-***the Q-value of either adding or removing a vertex from the solution is continually re-evaluated in the context of the episode’s history. Additionally, as all actions can be reversed***
-
-* reward shaping:   
-** to find the best solution with highest cut-value without punishment when choose an action reducing the cut-value.  
-** normalised by the total number of vertices.  
-* observations:
-seven observations are used in Q-value to flip (?) each vertex.
-> ECO-DQN ≡ S2V-DQN+RevAct+ObsTun+IntRew
 
 ### GCN
 #### An efficient graph convolutional network technique for the travelling salesman problem
