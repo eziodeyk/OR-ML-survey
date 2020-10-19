@@ -133,7 +133,7 @@ to determine the baseline policy, they keep the greedy rollout policy unchanged 
 (dont' get it clearly)  
 **performance**: less optimal than the state-of-the-art solvers such as LKH3 and Gurobi but show advantage in convergence speed.
 
-#### A Deep Reinforcement Learning Algorithm Using Dynamic Attention Model for Vehicle Routing Problems (in process)
+#### A Deep Reinforcement Learning Algorithm Using Dynamic Attention Model for Vehicle Routing Problems (pending)
 Bo Peng et al. 2020, (SYSU), (VRP)  
 **dynamic attention model (AM-D)**   
 encoder-decoder architecture in the schema of attention with mask.   
@@ -237,7 +237,7 @@ The DRL agent follows DQN algorithm where a DQN models the q-value function in m
 > an iterative message passing process runs between the link hidden states according to the graph structure    
 Evaluation: compared to other state-of-the-art models (two kinds of graph topology -- the 14-node NSFNet topology and the 24-node Geant2 : trained on one of them and tested on the other one) including ***a state-of-the-art DRL-based solution, a load balancing routing policy, and a theoretical fluid model***.    
 
-#### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (pending)   
+#### Solving NP-hard Problems on Graphs with Extended Alpha-Zero (in process) 
 Kenshin Abe et al. 2020, RIKEN.  
 MCTS to train the deep neural network; combined with Graph Neural Network (including 2-IGN+, GIN, GCN, S2V) in the second phase.   
 **algorithm**:   
