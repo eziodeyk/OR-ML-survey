@@ -215,7 +215,7 @@ seven observations are used in Q-value to flip (?) each vertex.
 Alex Nowak  et al. 2017, PMLR, (graph matching, TSP)  
 github: https://github.com/alexnowakvila/QAP_pt    
 In this work, researchers try to directly use a ***siamese*** GNN to process two given graphs into embedding features and predict matching basd on these features.
-(It states that there are two approaches to train models: ground-truth based and cost based.) The auther stated promising results through supervised learning, and its performance on TSP is slightly less optimal than Pointer Network. The main drawback of this model is ***the need for expensive ground truth examples*** and the gap to the optimal solver is hypothetically due to the model architecture.
+(It states that there are two approaches to train models: ground-truth based and cost based.) The author stated promising results through supervised learning, and its performance on TSP is slightly less optimal than Pointer Network. The main drawback of this model is ***the need for expensive ground truth examples*** and the gap to the optimal solver is hypothetically due to the model architecture.
 
 
 #### Learning to Solve NP-Complete Problems: A Graph Neural Network for Decision TSP
