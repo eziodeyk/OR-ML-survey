@@ -220,13 +220,15 @@ In this work, researchers try to directly use a ***siamese*** GNN to process two
 
 #### Learning to Solve NP-Complete Problems: A Graph Neural Network for Decision TSP
 Marcelo Prates et al. 2019, AAAI, (TSP)   
-github: https://github.com/machine-reasoning-ufrgs/TSP-GNN   
+github: https://github.com/machine-reasoning-ufrgs/TSP-GNN     
+The decision TSP refers the question on whether there exists the solution of cost under a certain criteria.
 ***The GNN model for TSP***:
 the role of the graph neural network is divided into two parts: the first one is to ***assgin a multidimensional embedding to each vertex***; and the second is to ***perform a given number of message-passing iterations*** (where the embedding of each node is transmitted to its adjacencies as their incoming messages). Those incoming messages are added up and fed into a RNN. ***The only trainable parameters of such a model are the message computing modules and the RNN***.   
 **For the TSP**
 **additionally assign embedding to edges** for the information about edge weights, replace the vertex-to-vertex adjacency matrix with an edge-to-vertex matrix adjacency matrix connecting each edge to its source and target vertices; the given target cost C together with the weight of the edge are concatenated and fed into a multi-layer perceptron to be expended into the initial embedding for that edge after a given number of iterations.   
 >finally the refined edge embeddings are fed into an MLP which computes a logit probability corresponding to the model’s prediction of the answer to the decision problem
 
+Training Target: to minimize the binary cross entropy lost between the prediction and the ground-truth.
 **performance**:???
 
 #### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case   
