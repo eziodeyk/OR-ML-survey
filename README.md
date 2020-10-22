@@ -277,7 +277,7 @@ The model takes the whole graph as input and proceed it into an adjancent matrix
 The main point of this work locates itself in the comprensive description on the structure of its GCN model, which consists of two types of layers: the input layer and convolutional layer.  
 **input layer**: the two-dimensional coordinates are embedded into h-dimensional vectors, the Euclidean distances of edges concated with three indicies (1 for k-nearest neighbor, 2 for self-connection, and 0 for others) to h/2-dimensional ones. It states that the input of k-nearest neighbors may contribute to speed up the convergence in TSP.  
 **graph convolutional layer**:  
-the graph convolutional layers works on both node-embedding features and edge-emmbedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.   
+the graph convolutional layers works on both node-embedding features and edge-embedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.   
 
 #### End to end learning and optimization on graphs （in process)
 Bryan Wilder et al. 2019 nips, differentible approximation.   
