@@ -281,7 +281,7 @@ The main point of this work locates itself in the comprensive description on the
 **graph convolutional layer**:  
 the graph convolutional layers works on both node-embedding features and edge-embedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.   
 
-#### End to end learning and optimization on graphs （in process)
+#### End to end learning and optimization on graphs 
 Bryan Wilder et al. 2019 nips, differentible approximation.   
 github: https://github.com/bwilder0/clusternet.  
 > include more structure via a differentiable k-means layer instead of using more generic tools (e.g., feed-forward or attention layers)...use a differentiable approximation to the objective which removes the need for a policy gradient estimator.   
@@ -302,10 +302,6 @@ Two approaches: exact backward pass and approximate backward pass.
 
 Experimental Part:  
 Two problems: learning(***observe a partial graph and aim to infer which unobserved edges are present***), optimization(***community detection, facility location***). 
-Respectively, two baselines:   
-**baseline learning method**: firstly initiate with 2-layer GCN for node embedding; compare three families of baselines: GCN-2stage, “train”, GCN-e2e
-The best result is emperically obtained with 2-layer GCN.  
-**baseline optimization method**:？？？ 
 
 
 #### Learning Heuristics over Large Graphs via Deep Reinforcement Learning
@@ -322,16 +318,21 @@ Two-fold destination of the GCN component: learn to identify potential noisy nod
 #### Learning 2-opt Heuristics for the Traveling Salesman Problem via Deep Reinforcement Learning
 Paulo Roberto et al. 2020, (TSP)  
 github: https://github.com/paulorocosta/learning-2opt-drl   
-**"Policy Gradient Neural Architecture**:A policy neural network with a pointing attention mechanism   
+**"Policy Gradient Neural Architecture**:A policy neural network with a pointing attention mechanism  
+
 **Encoder**:   
+> encode edge information using graph convolutions and use classical sequence encoding to learn tour representations.  
+
 element embedding from Graph Convolutional Network and sequence embedding from Recurrent Neural Network -- embedding layer copes with two dimensional coordinates of nodes, and then transmits them into GCN layer, which ***"leverages node features with the additional edge feature representation"***;   
-**Sequence Embedding Layers**   
+  **Sequence Embedding Layers**   
 Two LSTM models (one in forward manner and one in backward) process the output from GCN model as features in **each** layer and colletively form ***unique node representations in a tour***;  
-**Dual Encoding Mechanism**:  
+  **Dual Encoding Mechanism**:  
 Each status S_t bar is in form of tuple consisting of the current route as well as the best solution ever encountered with minimum cost (NB: current solution may not follow the minimum-cost criteria).  
 
 **Decoders**: policy decoder and value decoder.   
-**policy decoder**: 
+> decode these repre- sentations via a pointing attention mechanism.  
+
+  **policy decoder**: 
 > "given a status...assigns high probabilities to moves that reduce the cost of a tour."   
 
 They use ***"individual softmax functions to represent each*** multiplicative term in the factorized probability of a k-opt move. The query vector at one step is reccursively obtained additionally with the sequence output. And ultimately a Pointing mechanism is  to ***predict a distribution over node outputs given encoded actions (nodes) and a state representation (query vector)***.   
