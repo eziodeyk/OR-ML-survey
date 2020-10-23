@@ -3,6 +3,8 @@
 >>  ***quoted from the original resources***  
 >>  **to emphasis**  
 >> > original context
+
+(Two classes of combinatorial optimization problem: partition; subset selection.)   
 # End-to-end model 
 **(also containing deep reinforcement learning models which are not explicitly trained in an exactly end-to-end manner but worth recommending)**
 
@@ -283,14 +285,21 @@ the graph convolutional layers works on both node-embedding features and edge-em
 Bryan Wilder et al. 2019 nips, differentible approximation.   
 github: https://github.com/bwilder0/clusternet.  
 > include more structure via a differentiable k-means layer instead of using more generic tools (e.g., feed-forward or attention layers)...use a differentiable approximation to the objective which removes the need for a policy gradient estimator.   
-In most common approaches, model is responsible to rebuild the unknown ground-truth adjancent matrix from known ones training data by minimizing the handcrafted loss function. By constrast, the paper presents an end-to-end model directly mapping the known adjancent matrix to a ***feasible*** decision.   
-Two pipages:  
-**Forward pass**:  
-> "a soft-min assignment of each point to the cluster centers based 􏰁on distance".  
+In most common approaches, model is responsible to rebuild the unknown ground-truth adjancent matrix from known ones training data by minimizing the handcrafted loss function. By constrast, the paper presents an end-to-end model directly mapping the known adjancent matrix to a ***feasible*** decision.  
 
+The model focused on the combination of leanrning task and optimization task where the input graph is partially observed. The learning task is to learn the underground truth of graphs through inputs and the optimization task is to solve the optimization problems based on the predicted graph. The model follows the end-to-end architecture that directly maps the partial observations to the decision by maximizing the decision quality.
+
+Model consists of two components: one is the GCN model aggregating node features and graph structures into multi-dimensional vectors, and a differentiable optimization takes the embedded vectors into solutions.
+
+Two pipages for the differentiable k-means: forward and backward for the clustering procedure 
+**Forward pass**:  
+***run a solver***   
+> "a soft-min assignment of each point to the cluster centers based 􏰁on distance".  
+and iteratively update the cluster centers until they converge to fixed points.
 **Backward pass**:  
+***sensitivity analysis via KKT condition***
 Two approaches: exact backward pass and approximate backward pass.   
-Two classes of combinatorial optimization problem: partition; subset selection.  
+
 Experimental Part:  
 Two problems: learning(***observe a partial graph and aim to infer which unobserved edges are present***), optimization(***community detection, facility location***). 
 Respectively, two baselines:   
