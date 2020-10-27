@@ -353,8 +353,16 @@ They use ***"individual softmax functions to represent each*** multiplicative te
 
 ### category others：
 #### Routing in Optical Transport Networks with Deep Reinforcement Learning
-JOSÉ SUÁREZ-VARELA et al. 2020. HUAWEI, Journal, DRL,
+JOSÉ SUÁREZ-VARELA et al. 2020. HUAWEI. DRL
 
-## TRADITIONAL MACHINE LEARNING MODELS AS END-TO-END METHODS
+#### Erdos Goes Neural: an Unsupervised Learning Framework for Combinatorial Optimization on Graphs
+Nikolaos Karalias et al. 2020. NIPS, (the maximum clique, the constrained minimum cut)
 
+## Traditional Machine Learning Models as end-to-end methods
+#### Targeted sampling of enlarged neighborhood via Monte Carlo tree search for TSP    
+Zhang-Hua Fu et al. 2020. ICLR. TSP.   
+github: https://github.com/Spider-scnu/Monte-Carlo-tree-search-for-TSP   
 
+# Machine Learning & Exact
+
+# Machine Learning & Heuristic 
