@@ -364,5 +364,49 @@ Zhang-Hua Fu et al. 2020. ICLR. TSP.
 github: https://github.com/Spider-scnu/Monte-Carlo-tree-search-for-TSP   
 
 # Machine Learning & Exact
+#### Learning to Search in Branch-and-Bound Algorithms (checked)  
+He He et al. 2014. nips. linear classifier.
+notes:    
+* ***no-problem-dependent learning: use imitation learning to automatically learn the heuristics***.   
+* ***aim to search for a good solution without a rigorous proof of optimality.    
+
+two policies:
+* ***node selection policy determines the priorities used......obtain...by learning a linear rank function***, the node with highest priority will be the object of the node pruning process.    
+* ***node pruning policy decides whether to prune or expand given the current partial progress of the solver.......a binary classifier/regressor takes the feature-vector description of the state and attemps to predict the oracle action****    
+
+the **orcacle**: ***expend nodes in an order that minimizes the number of node expansions subject to finding the optimal solution.***    
+
+two heuristic methods: DFS and best-found-first search.   
+**the DAgger learning algorithm**:    
+* ***an interative imitation learning algorithm***.   
+* use the LIBLINEAR as the classifier to learn the policies.    
+
+performance: the model consistently performs well on all four datasets including MIK, Regions, Hybrid, CORLAT compared to other two cutting-edge open-source solvers --  SCIP and Gorubi.
+
+#### A Supervised Machine Learning Approach to Variable Branching in Branch-And-Bound (checked)       
+Alejandro Marcos Alvarez et al. 2014. Extremely Randomized Trees.    
+to imitate the strategy of strong branching with the machine learning model, namely extremely randomized trees, ***with a fast approximation... in an off-line fashion*** to alleviate the computational cost in exhaustive branching.   
+**two-phased approach**: firstly generate the heuristic decision to be learned by machine learning agent, then train the model with generated dataset and examine its performance on standard benchmark problems.
+
+The functional form of the branching is to select nodes that recurssively maximizing the specific branching score. Such branching score function is simulated by the supervised machine learning model with hand-designed input features. These features process three properties:
+> 1. the number of features is independent of the size of the problem.    
+> 2. invariant to irrelavent changes in the problem.    
+> 3. independent of the scale of the problem.   
+and are divided into three categories: static problem features, dynamic problem features, and dynamic optimization features.
+
+**performance:**
+comparison to other heuristic methods: random, MIB, NCB, FSB, and RB.
+Performance on randomly generated examples shows acceptable gap to the optimal solver (full strong branching) with significant reduction in computation.
+
+#### Machine Learning to Balance the Load in Parallel Branch-and-Bound (pending)
+
+#### Learning to Branch in Mixed Integer Programming
+Elias B. Khalil et al. 2014. nips. 
+Three-phased framework: 
+* 1. data collection (compute SB scores for every node and ***assign labels to the candidate variables*** => a training dataset.    
+* 2. model learning (a learning-to-rank algorithm to output ***the vector of weights for the features***).   
+* 3. ML-based branching ( ***branching on the one with maximum score until termination***)
+
+The work ***focuses on learning variable selection strategy***. The model is first instantiated by the CPLEX, and then candidate features in both static and dynamic manners is calculated for each node 
 
 # Machine Learning & Heuristic 
