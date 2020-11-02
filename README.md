@@ -364,7 +364,7 @@ Zhang-Hua Fu et al. 2020. ICLR. TSP.
 github: https://github.com/Spider-scnu/Monte-Carlo-tree-search-for-TSP   
 
 # Machine Learning & Exact
-#### Learning to Search in Branch-and-Bound Algorithms (checked)  
+#### Learning to Search in Branch-and-Bound Algorithms
 He He et al. 2014. nips. linear classifier.
 notes:    
 * ***no-problem-dependent learning: use imitation learning to automatically learn the heuristics***.   
@@ -383,7 +383,7 @@ two heuristic methods: DFS and best-found-first search.
 
 performance: the model consistently performs well on all four datasets including MIK, Regions, Hybrid, CORLAT compared to other two cutting-edge open-source solvers --  SCIP and Gorubi.
 
-#### A Supervised Machine Learning Approach to Variable Branching in Branch-And-Bound (checked)       
+#### A Supervised Machine Learning Approach to Variable Branching in Branch-And-Bound    
 Alejandro Marcos Alvarez et al. 2014. Extremely Randomized Trees.    
 to imitate the strategy of strong branching with the machine learning model, namely extremely randomized trees, ***with a fast approximation... in an off-line fashion*** to alleviate the computational cost in exhaustive branching.   
 **two-phased approach**: firstly generate the heuristic decision to be learned by machine learning agent, then train the model with generated dataset and examine its performance on standard benchmark problems.
@@ -402,11 +402,21 @@ Performance on randomly generated examples shows acceptable gap to the optimal s
 
 #### Learning to Branch in Mixed Integer Programming
 Elias B. Khalil et al. 2014. nips. 
+***a on-the-fly, data-driven design of variable selection strategy***:    
+> using a small number of search nodes to approach the good performance of SB    
+> maintaining a low computation footprint    
+> selecting variables adaptively based on the properties of the given instance.
+
 Three-phased framework: 
 * 1. data collection (compute SB scores for every node and ***assign labels to the candidate variables*** => a training dataset.    
 * 2. model learning (a learning-to-rank algorithm to output ***the vector of weights for the features***).   
-* 3. ML-based branching ( ***branching on the one with maximum score until termination***)
+* 3. ML-based branching ( ***branching on the one with maximum score until termination***)    
 
-The work ***focuses on learning variable selection strategy***. The model is first instantiated by the CPLEX, and then candidate features in both static and dynamic manners is calculated for each node 
+with three highlighted properties: node-efficiency, time-efficiency, and adaptiveness.    
+The training data consists of four components: a set of search tree nodes, a set of candidate variables, labels, and a feature map from variables to features.    
+The work ***focuses on learning variable selection strategy***. The model is first instantiated by the CPLEX, then candidate features in both static and dynamic manners is calculated for each node, and lastly a SVM-model -- SVM-rank -- learns ***to estimate a two-level ranking of good and bad variables based on SB scores***.    
+
+The SVM model (or in general a linear classifier) follows the pairwise ranking formulation and train on one pair of nodes at a time. At each new node, the feature vector is computated for each variable and the node is branched on the variables with maximum score. The model outperforms other classical branching strategies in all three considered aspects: the number of unsolved instances, the number of nodes to solve the instances, and the total time to solve the instance.
+
 
 # Machine Learning & Heuristic 
