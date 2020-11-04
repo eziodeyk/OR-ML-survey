@@ -401,7 +401,7 @@ Performance on randomly generated examples shows acceptable gap to the optimal s
 #### Machine Learning to Balance the Load in Parallel Branch-and-Bound (pending)
 
 #### Learning to Branch in Mixed Integer Programming
-Elias B. Khalil et al. 2014. nips. 
+Elias B. Khalil et al. 2014. nips. SVM-rank
 ***a on-the-fly, data-driven design of variable selection strategy***:    
 > using a small number of search nodes to approach the good performance of SB    
 > maintaining a low computation footprint    
@@ -417,6 +417,50 @@ The training data consists of four components: a set of search tree nodes, a set
 The work ***focuses on learning variable selection strategy***. The model is first instantiated by the CPLEX, then candidate features in both static and dynamic manners is calculated for each node, and lastly a SVM-model -- SVM-rank -- learns ***to estimate a two-level ranking of good and bad variables based on SB scores***.    
 
 The SVM model (or in general a linear classifier) follows the pairwise ranking formulation and train on one pair of nodes at a time. At each new node, the feature vector is computated for each variable and the node is branched on the variables with maximum score. The model outperforms other classical branching strategies in all three considered aspects: the number of unsolved instances, the number of nodes to solve the instances, and the total time to solve the instance.
+
+#### Online Learning for Strong Branching Approximation in Branch-and-Bound (pending)     
+Alejandro Marcos Alvarez et al. 2016. Variable Branching.    
+online learning
+
+#### A Machine Learning-Based Approximation of Strong Branching (pending)
+Alejandro Marcos Alvarez et al. 2017. Extremely Randomized Tree.    
+The strong branching strategy is the most efficient one up to now considering the number of explored nodes, while the computation might be considerable costing. The model employs a machine learning method to efficiently imitate the strong branching strategy and alleviate the computational burden.    
+Three properties ought to be possessed by the features:    
+* ***number of features need to be independent of the size of problem instances***.    
+* ......
+
+three types of features: static problem features, dynamic problem features, and dynamic optimization features.
+
+#### Learning a Classification of Mixed-Integer Quadratic Programming Problems     
+Pierre Bonam et al. 2017.    
+Mixed-Integer Noliear Programming (MINLP) -> Mixed-integer Quadratic Programming (MIQP).   
+four tested models: support vector machine with RBF kernel, Random Forests, Extremely Randomized Trees, Gradient Tree Boosting.    
+Optimization in quadratic form: Q is a symmetric matrix; a MIQP relaxation drops the integer constrains away.    
+Three problem types: pure convex, pure convex, and pure non-convex
+   
+The ***offline and supervised nature*** facilitates the task to examine influence of centain features to the decision-making.
+
+Four main phases: dataset generation -> features design -> labels definition -> learning experiments. 
+Methodological details:    
+* dataset generation: constraint set includes cardinality, simplex, and multi-dimensional knapsack
+* feature design: groups -- static features, dynamic features
+* labels definition: linear, non-linear, and tie (the probability of a tie between the two methods); three checks -- solvability, seed consistency, and global consistency.    
+Result: accuracy, precision, recall, and f1-score.    
+further work: analyse other benchmark datasets; identify the best learning scenario; define a custom loss function.
+
+#### Learning When to Use a Decomposition
+Markus Kruber et al. 2017.    
+core idea: ***Given a MIP, a DW decomposition, and a time limit, will GCG using DW optimally solve faster than SCIP?***.     
+note: GCN -- ***an extention to well-established MIP solver SCIP***; ***several detectors look for possible DW reformulation of the original MIP model***;
+The key factors: 1. the features catch relevant information; 2. training data represent the test data; 3. use a appropriate binary classifier (nearest neighbors; support vector machine with an RBF kernel, random forests).
+
+features for the binary classifier: instance statistics (decomposition-based statistics); detectors; time-remaining after detection.
+
+comparison among four solvers: ***the standard branch-and-cut MIP solver SCIP; GCG that tries to detect a decomposition and perform a DW reformulation accordingly***; SL stands for the methodology proposed in the paper; OPT by alwayls selecting the best solver.
+
+Performance:     
+> ***SL scheme with KNN catches roughly 2/3 of the improvement potential of OPT with respect to SCIP***.   
+> accuracy at up to 80 percents on subset of cases where GCG is selected by the model.    
 
 
 # Machine Learning & Heuristic 
