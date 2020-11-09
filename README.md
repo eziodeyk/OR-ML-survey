@@ -421,9 +421,10 @@ The work ***focuses on learning variable selection strategy***. The model is fir
 
 The SVM model (or in general a linear classifier) follows the pairwise ranking formulation and train on one pair of nodes at a time. At each new node, the feature vector is computated for each variable and the node is branched on the variables with maximum score. The model outperforms other classical branching strategies in all three considered aspects: the number of unsolved instances, the number of nodes to solve the instances, and the total time to solve the instance.
 
-#### Online Learning for Strong Branching Approximation in Branch-and-Bound (pending)     
+#### Online Learning for Strong Branching Approximation in Branch-and-Bound (in progress)     
 Alejandro Marcos Alvarez et al. 2016. Variable Branching.    
-online learning
+online learning mechanism: ***if for a given variable, the approximation variable is deemed reliable, then the score for that variable is computed thanks to the learned function. If the approximation is not reliable yet, the strong branching is used instead.***    
+
 
 #### A Machine Learning-Based Approximation of Strong Branching (pending)
 Alejandro Marcos Alvarez et al. 2017. Extremely Randomized Tree.    
