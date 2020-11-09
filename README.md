@@ -363,7 +363,10 @@ Nikolaos Karalias et al. 2020. NIPS, (the maximum clique, the constrained minimu
 Zhang-Hua Fu et al. 2020. ICLR. TSP.   
 github: https://github.com/Spider-scnu/Monte-Carlo-tree-search-for-TSP   
 
-# Machine Learning & Exact
+# Machine Learning & Exact methods.    
+
+
+
 #### Learning to Search in Branch-and-Bound Algorithms
 He He et al. 2014. nips. linear classifier.
 notes:    
@@ -464,3 +467,23 @@ Performance:
 
 
 # Machine Learning & Heuristic 
+
+# Others    
+#### DASH: Dynamic Approach for Swichting Heuristics     
+Branching Heuristics:      
+* Most Fractional Rounding (MF)    
+* Less Fractional Rounding (LF)    
+* Less Fractional and Highest Objective Rounding (LFHO)    
+* Most Fractional and Highest Objedtive Rounding (MFHO)     
+* Pseudocost Branching Weighted Score (PW)   
+* Pseudocost Branching Product Score (P)
+
+Feature Space:    
+* Percentage of variables in the subproblem;    
+* Percentage of variables in the objective function of the subproblem;      
+* Percentage of equality and inequality constraints;      
+* Statistics of how many variables are in the constraint;    
+* Statistics of the number of constraints in which each variable is used;    
+* Depth in the branch and bound tree.    
+
+Solvers: BSS; RAND 1(***switch between heuristics uniformaly at random***); RAND 2(***switch among the top 4 best heuristics***); VBS; VBS_band.    
