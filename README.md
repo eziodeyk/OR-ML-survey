@@ -452,6 +452,12 @@ Methodological details:
 Result: accuracy, precision, recall, and f1-score.    
 further work: analyse other benchmark datasets; identify the best learning scenario; define a custom loss function.
 
+#### Learning to run Heuristics in Tree Search (in progress)    
+Two sides to constrained optimization problem:    
+* ***to find feasible solutions to the problem instances at hand*** (prime side);    
+* ***to prove the optimality of the best feasible solution found*** (dual side).    
+core idea: ***combining primal heuristics with exact branch-and-bound search to improve solution finding***.    
+
 #### Learning When to Use a Decomposition
 Markus Kruber et al. 2017.    
 core idea: ***Given a MIP, a DW decomposition, and a time limit, will GCG using DW optimally solve faster than SCIP?***.     
@@ -465,6 +471,8 @@ comparison among four solvers: ***the standard branch-and-cut MIP solver SCIP; G
 Performance:     
 > ***SL scheme with KNN catches roughly 2/3 of the improvement potential of OPT with respect to SCIP***.   
 > accuracy at up to 80 percents on subset of cases where GCG is selected by the model.    
+
+###
 
 
 # Machine Learning & Heuristic 
