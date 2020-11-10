@@ -472,8 +472,33 @@ Performance:
 > ***SL scheme with KNN catches roughly 2/3 of the improvement potential of OPT with respect to SCIP***.   
 > accuracy at up to 80 percents on subset of cases where GCG is selected by the model.    
 
-###
+#### Learning to Branch (pending).       
+Maria-Florina Balcan et al. 2018. 
+***to design algorithms that learn the optimal parameter setting for the problem instance distribution at hand***.      
 
+#### Reinforcement Learning for Integer Programming: Learning to Cut.    
+Yunhao Tang et al. 2020. ICML.   
+> no work on focusing on pure selection of (Gomory) cuts has appeared in the literature.   
+
+**Contributions**:    
+* Efficient MDP formulation.    
+* Deep RL solution architecture design.    
+* Empirical evaluation (packing, binary packing, planning, and maximum cut).    
+
+**the cutting-plane method**:    
+1. drop the integrality constraints;    
+2. add new constraint to the feasible region of the LP;    
+3. get the new LP and iteratively solve until the optimal solution is integers.    
+
+**The RL formulation of cutting plane**:    
+* status space: tuples consisting of the feasible solution, c, the optimal solution the current LP, and the set of candidate Gomory's cuts.    
+* action space: all possible Gomory's cutting planes;   
+* reward: ***the gap between objective values of consecutive LP solutions***.     
+* transition: ......
+
+**The policy architecture**:
+* ***attention network for order-agnostic cut selectio***.    
+* ***network for varialbe sized inputs***.     
 
 # Machine Learning & Heuristic 
 
