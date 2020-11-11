@@ -22,7 +22,7 @@ model targets on permutation-like problems such as sorting, Eucilidean TSP, MWM,
 #### Pointer Networks：
 Oriol Vinyals et al. 2015. NIPS. (TSP, convex hall, delaunay triangulation).  
 github: https://github.com/devsisters/pointer-network-tensorflow    
-A sequence-to-sequence model with modified attention mechanism where the output is in form of a distribution over all elements of the input. It delivers solutions to a set of problems that the size of output dictionary depends on the length of input. It is typical in combinatorial optimization problem and the conventional attention mechanism has limit on efficiency in tackling such type of problem. The novelty in this model, the "Pointer", refers to the neural network using attention mechanism with a soft-max layer generating a probability distribution function on the input from hidden status in both encoder and decoder. To demonstrate its performance, they conduct experiments on three classical geometric problems: convex hall problem, Delaunay triangulation problem, and traveling salesman problem. The Pointer Network is reported to show improvement in performance on all three problems in small sets compared to previous machine learning methods while fails in large-scale Delaunay triangulation problems. More importantly, invalid tours could be produced by Pointer Network model and a beam search algorithm is deployed to only select the valid ones. Generally, it obtains results close to classical exact and heuristic solvers in TSP, and is considered as a breakthrough in application of machine learning model in an end-to-end manner to combinatorial optimization problems especially the TSP.
+A sequence-to-sequence model with modified attention mechanism where the output is in form of a distribution over all elements of the input. It delivers solutions to a set of problems that the size of output dictionary depends on the length of input. It is typical in combinatorial optimization problem and the conventional attention mechanism has limit on efficiency in tackling such type of problem. The novelty in this model, the "Pointer", refers to the neural network using attention mechanism with a soft-max layer generating a probability distribution function on the input from hidden status in both encoder and decoder. To demonstrate its performance, they conduct experiments on three classical geometric problems: convex hall problem, Delaunay triangulation problem, and traveling salesman problem. The Pointer Network is reported to show improvement in performance on all three problems in small sets compared to previous machine learning methods while fails in large-scale Delaunay triangulation problems. More importantly, invalid tours could be produced by Pointer Network model and a beam search algorithm is deployed to only select the valid ones. Generally, it obtains results close to classical exact and heuristic solvers in TSP, and is considered as a breakthrough in application of machine learning model in the end-to-end manner to combinatorial optimization problems especially the TSP.
 
 #### Neural Combinatorial Optimization with Reinforcement Learning:
 Irwan Bello et al. 2016. ICLR. (TSP, KP).  
@@ -477,7 +477,7 @@ Maria-Florina Balcan et al. 2018.
 ***to design algorithms that learn the optimal parameter setting for the problem instance distribution at hand***.      
 
 #### Reinforcement Learning for Integer Programming: Learning to Cut.    
-Yunhao Tang et al. 2020. ICML.   
+Yunhao Tang et al. 2020. ICML. Branching and Cut.       
 > no work on focusing on pure selection of (Gomory) cuts has appeared in the literature.   
 
 **Contributions**:    
@@ -490,15 +490,31 @@ Yunhao Tang et al. 2020. ICML.
 2. add new constraint to the feasible region of the LP;    
 3. get the new LP and iteratively solve until the optimal solution is integers.    
 
+**the branching and cut**:
+> ***a typical way to evaluate a B&C method is by the number of subproblems explored before the optimal solution is found......alternates between the cutting plane method and branching***.    
+
 **The RL formulation of cutting plane**:    
+* the policy maps ***from any status to a distribution over actors***.
 * status space: tuples consisting of the feasible solution, c, the optimal solution the current LP, and the set of candidate Gomory's cuts.    
 * action space: all possible Gomory's cutting planes;   
 * reward: ***the gap between objective values of consecutive LP solutions***.     
 * transition: ......
 
-**The policy architecture**:
-* ***attention network for order-agnostic cut selectio***.    
-* ***network for varialbe sized inputs***.     
+**The policy architecture**:    
+a set of inequalities for a status and another for the available actions    
+* attention network for order-agnostic cut selection: calculate the score for each candidate cut and define probabilities on the results via softmax.           
+* LSTM network for varialbe sized inputs: ***embed each constraint using a LSTM network*** and the hidden status could be used in attention network    
+
+**Evolutionary strategies**:    
+> flatten the RL problem into a blackbox optimization problem where the input is a policy parameter θ and the output is a noisy estimate of the agent’s performance under the corresponding policy
+
+**Evaluation**:    
+* efficiency of cuts.   
+* integrality gap closed. 
+* generalization problem. 
+* impact on the efficiency of B&C. 
+* interpretability of the cut(knapsack). 
+compared with human-design heuristic baselines including random, max violation, max normalized violation, and Lexicographical Rule.
 
 # Machine Learning & Heuristic 
 
