@@ -451,7 +451,7 @@ Methodological details:
 * labels definition: linear, non-linear, and tie (the probability of a tie between the two methods); three checks -- solvability, seed consistency, and global consistency.    
 Result: accuracy, precision, recall, and f1-score.    
 further work: analyse other benchmark datasets; identify the best learning scenario; define a custom loss function.
-
+ 
 #### Learning to run Heuristics in Tree Search (in progress)    
 Two sides to constrained optimization problem:    
 * ***to find feasible solutions to the problem instances at hand*** (prime side);    
