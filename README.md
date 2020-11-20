@@ -452,7 +452,7 @@ Methodological details:
 Result: accuracy, precision, recall, and f1-score.    
 further work: analyse other benchmark datasets; identify the best learning scenario; define a custom loss function.
  
-#### Learning to run Heuristics in Tree Search (in progress) 
+#### Learning to run Heuristics in Tree Search
 ***the use of machine learning for predicting whether a heuristic would succeed at a given node.***
 
 Two sides to constrained optimization problem:    
@@ -473,8 +473,7 @@ Run-When-Successful(RWS:a rule-of-thumb) --> ***provides theortical gaurantee un
 * depth features   
 * node LP features   
 * scoring features for fractional variables
-
-#### A Machine Learning-based Approximation of Strong Branching.    
+  
 
 
 #### Learning When to Use a Decomposition
