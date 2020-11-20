@@ -452,11 +452,30 @@ Methodological details:
 Result: accuracy, precision, recall, and f1-score.    
 further work: analyse other benchmark datasets; identify the best learning scenario; define a custom loss function.
  
-#### Learning to run Heuristics in Tree Search (in progress)    
+#### Learning to run Heuristics in Tree Search (in progress) 
+***the use of machine learning for predicting whether a heuristic would succeed at a given node.***
+
 Two sides to constrained optimization problem:    
 * ***to find feasible solutions to the problem instances at hand*** (prime side);    
 * ***to prove the optimality of the best feasible solution found*** (dual side).    
 core idea: ***combining primal heuristics with exact branch-and-bound search to improve solution finding***.    
+
+**Primal Integral** --> ***the quality of and the speed at which feasible solutions are found***.   
+**Primal Integral Optimization** --> to find the subset of nodes resulting into minimum value of the primal integral    
+
+online setting (vs offline setting)
+
+Run-When-Successful(RWS:a rule-of-thumb) --> ***provides theortical gaurantee under a simplified setting***.   
+> dynamically decide whether to run the heuristic at a given node, based on the instance characteristics, node characteristics and status of the search.
+
+**node features**: 
+* global features    
+* depth features   
+* node LP features   
+* scoring features for fractional variables
+
+#### A Machine Learning-based Approximation of Strong Branching.    
+
 
 #### Learning When to Use a Decomposition
 Markus Kruber et al. 2017.    
@@ -515,6 +534,12 @@ a set of inequalities for a status and another for the available actions
 * impact on the efficiency of B&C. 
 * interpretability of the cut(knapsack). 
 compared with human-design heuristic baselines including random, max violation, max normalized violation, and Lexicographical Rule.
+
+#### Combining Reinforcement Learning and Constraint Programming for Combinatorial Optimization    
+Quentin Cappart et al. 2020. 
+Deep reinforcement learning + constraint programming (branching strategy)
+three parts: learning phase (reinforcement learning), unifying pahse (dynamic programming), solving phase (constraint programming)
+
 
 # Machine Learning & Heuristic 
 
