@@ -424,9 +424,15 @@ The SVM model (or in general a linear classifier) follows the pairwise ranking f
 #### Online Learning for Strong Branching Approximation in Branch-and-Bound (in progress)     
 Alejandro Marcos Alvarez et al. 2016. Variable Branching.    
 online learning mechanism: ***if for a given variable, the approximation variable is deemed reliable, then the score for that variable is computed thanks to the learned function. If the approximation is not reliable yet, the strong branching is used instead.***    
+* olb: online learning branching --> limitated number of learning samples per variable.    
+* oplb: online perpetual learning branching.     
 
+four parameters:
+* ***the number of variables that can be considered as branching candidates at each iteration***.    
+* ***how many samples are required in order to trust the approximation for a specific variables***.    
+* limitations on ***the convergence of the gradient descent algorithm in order to avoid undesirable oscillations***.    
 
-#### A Machine Learning-Based Approximation of Strong Branching (checked)
+#### A Machine Learning-Based Approximation of Strong Branching
 Alejandro Marcos Alvarez et al. 2017. Extremely Randomized Tree.    
 ***similar to reliability branching***...instead of ***using machine learning to switch between existing branching strategies...use machine learning to provide a quick approximation to an existing branching strategy.***      
 
