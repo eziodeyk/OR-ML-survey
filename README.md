@@ -426,14 +426,24 @@ Alejandro Marcos Alvarez et al. 2016. Variable Branching.
 online learning mechanism: ***if for a given variable, the approximation variable is deemed reliable, then the score for that variable is computed thanks to the learned function. If the approximation is not reliable yet, the strong branching is used instead.***    
 
 
-#### A Machine Learning-Based Approximation of Strong Branching (pending)
+#### A Machine Learning-Based Approximation of Strong Branching (checked)
 Alejandro Marcos Alvarez et al. 2017. Extremely Randomized Tree.    
-The strong branching strategy is the most efficient one up to now considering the number of explored nodes, while the computation might be considerable costing. The model employs a machine learning method to efficiently imitate the strong branching strategy and alleviate the computational burden.    
+***similar to reliability branching***...instead of ***using machine learning to switch between existing branching strategies...use machine learning to provide a quick approximation to an existing branching strategy.***      
+
+The strong branching strategy is the most efficient one up to now considering the number of explored nodes, while the computation might be considerable costing. The model employs a machine learning method to efficiently imitate the strong branching strategy and alleviate the computational burden. ***strong branching score is computed for each fractional variable together with features associated with that variables.***
+
 Three properties ought to be possessed by the features:    
-* ***number of features need to be independent of the size of problem instances***.    
-* ......
+* ***number of features need to be independent of the size of problem instances***(size-independency)     
+* ***the feature should be invariant to with respect to irrelavent changes in the problem (such as row or column permutation)***    
+* ***be independent of the scale of the problem***    
 
 three types of features: static problem features, dynamic problem features, and dynamic optimization features.
+* static problem features: ***calculated once and for all and they represent the static status of the problem...to give an overall description of the problem***.    
+* dynamic problem features: ***related to the solution of the problem at the current B&B node***.    
+* dynamic optimization problem: ***represent the overall state of the optimization...summarize global information that is not available from the single current node***.    
+
+**performance**:
+
 
 #### Learning a Classification of Mixed-Integer Quadratic Programming Problems     
 Pierre Bonam et al. 2017.    
