@@ -550,11 +550,12 @@ a set of inequalities for a status and another for the available actions
 * interpretability of the cut(knapsack). 
 compared with human-design heuristic baselines including random, max violation, max normalized violation, and Lexicographical Rule.
 
-#### Combining Reinforcement Learning and Constraint Programming for Combinatorial Optimization    
+#### Combining Reinforcement Learning and Constraint Programming for Combinatorial Optimization (pending)    
 Quentin Cappart et al. 2020. 
 Deep reinforcement learning + constraint programming (branching strategy)
 three parts: learning phase (reinforcement learning), unifying pahse (dynamic programming), solving phase (constraint programming)
-
+**dynamic programming (DP)**:    
+**constraint programming (CP)**:    
 
 # Machine Learning & Heuristic 
 
