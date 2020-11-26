@@ -365,8 +365,6 @@ github: https://github.com/Spider-scnu/Monte-Carlo-tree-search-for-TSP
 
 # Machine Learning & Exact methods.    
 
-
-
 #### Learning to Search in Branch-and-Bound Algorithms
 He He et al. 2014. nips. linear classifier.
 notes:    
@@ -375,16 +373,17 @@ notes:
 
 two policies:
 * ***node selection policy determines the priorities used......obtain...by learning a linear rank function***, the node with highest priority will be the object of the node pruning process.    
-* ***node pruning policy decides whether to prune or expand given the current partial progress of the solver.......a binary classifier/regressor takes the feature-vector description of the state and attemps to predict the oracle action***    
+* ***node pruning policy decides whether to prune or expand given the current partial progress of the solver......a binary classifier/regressor takes the feature-vector description of the state and attemps to predict the oracle action***    
 
-the **orcacle**: ***expend nodes in an order that minimizes the number of node expansions subject to finding the optimal solution.***    
+the **oracle**: ***expend nodes in an order that minimizes the number of node expansions subject to finding the optimal solution.***    
 
 two heuristic methods: DFS and best-found-first search.   
 **the DAgger learning algorithm**:    
-* ***an interative imitation learning algorithm***.   
+* ***an iterative imitation learning algorithm***.   
 * use the LIBLINEAR as the classifier to learn the policies.    
 
-performance: the model consistently performs well on all four datasets including MIK, Regions, Hybrid, CORLAT compared to other two cutting-edge open-source solvers --  SCIP and Gorubi.
+performance:    
+the model consistently performs well on all four datasets including MIK, Regions, Hybrid, CORLAT compared to other two cutting-edge open-source solvers --  SCIP and Gorubi.
 
 #### A Supervised Machine Learning Approach to Variable Branching in Branch-And-Bound    
 Alejandro Marcos Alvarez et al. 2014. Extremely Randomized Trees.    
