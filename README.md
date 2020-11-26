@@ -178,7 +178,7 @@ the model trained on small-scale graphs could be well generalized to large-scale
 Justin Gilmer et al. 2017, supervised learning,  
 github: https://github.com/microsoft/tf-gnn-samples   
 
-#### Learning a SAT Solver from Single-bit Supervision (in process)
+#### Learning a SAT Solver from Single-bit Supervision
 Daniel Selsam et al. 2019, ICLR, supervised learing, (SAT).   
 SAT: A formula of propositional logic wih n variables and m clauses is said to be satifiable if ***there exists an assignment of boolean values to its variables such that the formula evaluates to 1***.   
 > A SAT problem is a formula in CNF, where the goal is to determine if the formula is satisfiable, and if so, to produce a satisfying assignment of truth values to variables.  
@@ -402,6 +402,7 @@ comparison to other heuristic methods: random, MIB, NCB, FSB, and RB.
 Performance on randomly generated examples shows acceptable gap to the optimal solver (full strong branching) with significant reduction in computation.
 
 #### Machine Learning to Balance the Load in Parallel Branch-and-Bound (pending)
+Alejandro Marcos Alvarez et al. 2014
 
 #### Learning to Branch in Mixed Integer Programming
 Elias B. Khalil et al. 2014. nips. SVM-rank
