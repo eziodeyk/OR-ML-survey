@@ -371,7 +371,7 @@ github: https://github.com/Spider-scnu/Monte-Carlo-tree-search-for-TSP
 He He et al. 2014. nips. linear classifier.
 notes:    
 * ***no-problem-dependent learning: use imitation learning to automatically learn the heuristics***.   
-* ***aim to search for a good solution without a rigorous proof of optimality.    
+* ***aim to search for a good solution without a rigorous proof of optimality.***    
 
 two policies:
 * ***node selection policy determines the priorities used......obtain...by learning a linear rank function***, the node with highest priority will be the object of the node pruning process.    
