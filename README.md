@@ -375,7 +375,7 @@ notes:
 
 two policies:
 * ***node selection policy determines the priorities used......obtain...by learning a linear rank function***, the node with highest priority will be the object of the node pruning process.    
-* ***node pruning policy decides whether to prune or expand given the current partial progress of the solver.......a binary classifier/regressor takes the feature-vector description of the state and attemps to predict the oracle action****    
+* ***node pruning policy decides whether to prune or expand given the current partial progress of the solver.......a binary classifier/regressor takes the feature-vector description of the state and attemps to predict the oracle action***    
 
 the **orcacle**: ***expend nodes in an order that minimizes the number of node expansions subject to finding the optimal solution.***    
 
@@ -388,7 +388,7 @@ performance: the model consistently performs well on all four datasets including
 
 #### A Supervised Machine Learning Approach to Variable Branching in Branch-And-Bound    
 Alejandro Marcos Alvarez et al. 2014. Extremely Randomized Trees.    
-to imitate the strategy of strong branching with the machine learning model, namely extremely randomized trees, ***with a fast approximation... in an off-line fashion*** to alleviate the computational cost in exhaustive branching.   
+to imitate the strategy of strong branching with the machine learning model, namely extremely randomized trees, ***with a fast approximation... in an offline fashion*** to alleviate the computational cost in exhaustive branching.   
 **two-phased approach**: firstly generate the heuristic decision to be learned by machine learning agent, then train the model with generated dataset and examine its performance on standard benchmark problems.
 
 The functional form of the branching is to select nodes that recurssively maximizing the specific branching score. Such branching score function is simulated by the supervised machine learning model with hand-designed input features. These features process three properties:
