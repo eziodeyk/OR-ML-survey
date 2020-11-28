@@ -366,14 +366,14 @@ github: https://github.com/Spider-scnu/Monte-Carlo-tree-search-for-TSP
 # Machine Learning & Exact methods.    
 
 #### Learning to Search in Branch-and-Bound Algorithms
-He He et al. 2014. nips. linear classifier.
+He He et al. 2014. nips. linear classifier. search the branching tree.    
 notes:    
-* ***no-problem-dependent learning: use imitation learning to automatically learn the heuristics***.   
+* ***non-problem-dependent learning: use imitation learning to automatically learn the heuristics***.   
 * ***aim to search for a good solution without a rigorous proof of optimality.***    
 
 two policies:
 * ***node selection policy determines the priorities used......obtain...by learning a linear rank function***, the node with highest priority will be the object of the node pruning process.    
-* ***node pruning policy decides whether to prune or expand given the current partial progress of the solver......a binary classifier/regressor takes the feature-vector description of the state and attemps to predict the oracle action***    
+* ***node pruning policy decides whether to prune or expand given the current partial progress of the solver......a binary classifier/regressor takes the feature-vector description of the state and attempts to predict the oracle action***    
 
 the **oracle**: ***expend nodes in an order that minimizes the number of node expansions subject to finding the optimal solution.***    
 
@@ -386,11 +386,11 @@ performance:
 the model consistently performs well on all four datasets including MIK, Regions, Hybrid, CORLAT compared to other two cutting-edge open-source solvers --  SCIP and Gorubi.
 
 #### A Supervised Machine Learning Approach to Variable Branching in Branch-And-Bound    
-Alejandro Marcos Alvarez et al. 2014. Extremely Randomized Trees.    
+Alejandro Marcos Alvarez et al. 2014. Extremely Randomized Trees. Variable branching heuristic.       
 to imitate the strategy of strong branching with the machine learning model, namely extremely randomized trees, ***with a fast approximation... in an offline fashion*** to alleviate the computational cost in exhaustive branching.   
 **two-phased approach**: firstly generate the heuristic decision to be learned by machine learning agent, then train the model with generated dataset and examine its performance on standard benchmark problems.
 
-The functional form of the branching is to select nodes that recurssively maximizing the specific branching score. Such branching score function is simulated by the supervised machine learning model with hand-designed input features. These features process three properties:
+The functional form of the branching is to select nodes that recursively maximizing the specific branching score. Such branching score function is simulated by the supervised machine learning model with hand-designed input features. These features process three properties:
 > 1. the number of features is independent of the size of the problem.    
 > 2. invariant to irrelavent changes in the problem.    
 > 3. independent of the scale of the problem.   
@@ -403,17 +403,17 @@ Performance on randomly generated examples shows acceptable gap to the optimal s
 #### Machine Learning to Balance the Load in Parallel Branch-and-Bound (pending)
 Alejandro Marcos Alvarez et al. 2014
 
-#### Learning to Branch in Mixed Integer Programming
-Elias B. Khalil et al. 2014. nips. SVM-rank
+#### Learning to Branch in Mixed Integer Programming.    
+Elias B. Khalil et al. 2014. nips. SVM-rank.    
 ***a on-the-fly, data-driven design of variable selection strategy***:    
 > using a small number of search nodes to approach the good performance of SB    
-> maintaining a low computation footprint    
-> selecting variables adaptively based on the properties of the given instance.
+> maintaining a low computation footprint     
+> selecting variables adaptively based on the properties of the given instance.     
 
-Three-phased framework: 
-* 1. data collection (compute SB scores for every node and ***assign labels to the candidate variables*** => a training dataset.    
-* 2. model learning (a learning-to-rank algorithm to output ***the vector of weights for the features***).   
-* 3. ML-based branching ( ***branching on the one with maximum score until termination***)    
+Three-phased framework:   
+* 1. data collection (compute SB scores for every node and ***assign labels to the candidate variables***) => a training dataset.     
+* 2. model learning (a learning-to-rank algorithm to output ***the vector of weights for the features***).    
+* 3. ML-based branching (***branching on the one with maximum score until termination***)     
 
 with three highlighted properties: node-efficiency, time-efficiency, and adaptiveness.    
 The training data consists of four components: a set of search tree nodes, a set of candidate variables, labels, and a feature map from variables to features.    
@@ -449,6 +449,7 @@ three types of features: static problem features, dynamic problem features, and 
 * dynamic optimization problem: ***represent the overall state of the optimization...summarize global information that is not available from the single current node***.    
 
 **performance**:
+> well inimiates the full strong branching
 
 
 #### Learning a Classification of Mixed-Integer Quadratic Programming Problems     
