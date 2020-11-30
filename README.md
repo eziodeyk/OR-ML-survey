@@ -427,9 +427,14 @@ online learning mechanism: ***if for a given variable, the approximation variabl
 * olb: online learning branching --> limitated number of learning samples per variable.    
 * oplb: online perpetual learning branching.     
 
+the online-learning fashion -- scores are computed in two ways:     
+> if the approximation that we create for the variable is deemed unreliable, the real SB score is computed, together with a set of features describing that variable at the current node......it is also stored in a dataset (with the computed features) to improve the approximation of the SB proxy.      
+> if the approximation is deemed reliable, the features describing the current candidate are computed and fed to the approximated version of SB.    
+> in order to determine whether the approximation for a given variable is reliable or not......simply count the number of samples (i.e., computed real SB scores and features) that have been generated previously for each variable.    
+
 four parameters:
 * ***the number of variables that can be considered as branching candidates at each iteration***.    
-* ***how many samples are required in order to trust the approximation for a specific variables***.    
+* ***how many samples are required in order to trust the approximation for a specific variable***.    
 * limitations on ***the convergence of the gradient descent algorithm in order to avoid undesirable oscillations***.    
 
 #### A Machine Learning-Based Approximation of Strong Branching
@@ -449,7 +454,7 @@ three types of features: static problem features, dynamic problem features, and 
 * dynamic optimization problem: ***represent the overall state of the optimization...summarize global information that is not available from the single current node***.    
 
 **performance**:
-> well inimiates the full strong branching
+> well imitates the full strong branching
 
 
 #### Learning a Classification of Mixed-Integer Quadratic Programming Problems     
