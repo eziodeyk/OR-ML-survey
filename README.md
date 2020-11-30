@@ -233,7 +233,7 @@ the role of the graph neural network is divided into two parts: the first one is
 Training Target: to minimize the binary cross entropy lost between the prediction and the ground-truth.
 **performance**:???
 
-#### Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case   
+#### Deep Reinforcement Learning meets Graph Neural Networks: Exploring a Routing Optimization Use Case   
 Paul Almasan et al. 2020, DRL+GNN, (optical transport networks: ***as a classical resource allocation problem in network***)  
 github: https://github.com/knowledgedefinednetworking    
 A SDN-based Optical Transport Network under Deep Q-learing framework: ***"use a DNN as the q-value function estimator"***.   
@@ -272,7 +272,7 @@ concatenate node embeddings, subgraph embeddings, and graph-level embeddings gen
 
 
 ### GCN
-#### An efficient graph convolutional network technique for the travelling salesman problem
+#### An Efficient Graph Convolutional Network Technique for the Travelling Salesman Problem
 Chaitanya K. Joshi et al. 2019, supervised learning.   
 github: https://github.com/chaitjo/graph-convnet-tsp.  
 keywords: non-autoregressive -- ***"outperforms all recently proposed autoregressive deep learning techniques"***.  
@@ -282,7 +282,7 @@ The main point of this work locates itself in the comprensive description on the
 **graph convolutional layer**:  
 the graph convolutional layers works on both node-embedding features and edge-embedding features and hierachically proceeds them into the final MLP layer, which generates the adjancent matrix as output.   
 
-#### End to end learning and optimization on graphs 
+#### End-to-end Learning and Optimization on Graphs 
 Bryan Wilder et al. 2019 nips, differentible approximation.   
 github: https://github.com/bwilder0/clusternet.  
 > include more structure via a differentiable k-means layer instead of using more generic tools (e.g., feed-forward or attention layers)...use a differentiable approximation to the objective which removes the need for a policy gradient estimator.   
@@ -358,12 +358,12 @@ JOSÉ SUÁREZ-VARELA et al. 2020. HUAWEI. DRL
 #### Erdos Goes Neural: an Unsupervised Learning Framework for Combinatorial Optimization on Graphs
 Nikolaos Karalias et al. 2020. NIPS, (the maximum clique, the constrained minimum cut)
 
-## Traditional Machine Learning Models as end-to-end methods
+## Traditional Machine Learning Models as End-to-end Methods
 #### Targeted sampling of enlarged neighborhood via Monte Carlo tree search for TSP    
 Zhang-Hua Fu et al. 2020. ICLR. TSP.   
 github: https://github.com/Spider-scnu/Monte-Carlo-tree-search-for-TSP   
 
-# Machine Learning & Exact methods.    
+# Machine Learning & Exact Methods.    
 
 #### Learning to Search in Branch-and-Bound Algorithms
 He He et al. 2014. nips. linear classifier. search the branching tree.    
