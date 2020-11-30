@@ -466,7 +466,7 @@ Three problem types: pure convex, pure convex, and pure non-convex
    
 The ***offline and supervised nature*** facilitates the task to examine influence of centain features to the decision-making.
 
-Four main phases: dataset generation -> features design -> labels definition -> learning experiments. 
+Four main phases: dataset generation -> features design -> labels definition -> learning experiments.    
 Methodological details:    
 * dataset generation: constraint set includes cardinality, simplex, and multi-dimensional knapsack
 * feature design: groups -- static features, dynamic features
@@ -474,8 +474,9 @@ Methodological details:
 Result: accuracy, precision, recall, and f1-score.    
 further work: analyse other benchmark datasets; identify the best learning scenario; define a custom loss function.
  
-#### Learning to run Heuristics in Tree Search    
-***the use of machine learning for predicting whether a heuristic would succeed at a given node.***
+#### Learning to run Heuristics in Tree Search     
+Elias B. Khalil et al. 2017. IJCAI. 
+***the use of machine learning for predicting whether a heuristic would succeed at a given node.***     
 
 Two sides to constrained optimization problem:    
 * ***to find feasible solutions to the problem instances at hand*** (prime side);    
@@ -492,12 +493,10 @@ Run-When-Successful(RWS:a rule-of-thumb) --> ***provides theortical gaurantee un
 
 **node features**: 
 * global features    
-* depth features   
-* node LP features   
-* scoring features for fractional variables
+* depth features    
+* node LP features    
+* scoring features for fractional variables    
   
-
-
 #### Learning When to Use a Decomposition    
 Markus Kruber et al. 2017.    
 core idea: ***Given a MIP, a DW decomposition, and a time limit, will GCG using DW optimally solve faster than SCIP?***.     
@@ -555,6 +554,10 @@ a set of inequalities for a status and another for the available actions
 * impact on the efficiency of B&C. 
 * interpretability of the cut(knapsack). 
 compared with human-design heuristic baselines including random, max violation, max normalized violation, and Lexicographical Rule.
+
+#### Hybrid Models for Learning to Branch (pending)    
+Prateek Gupta et al. 2020. nips. 
+
 
 #### Combining Reinforcement Learning and Constraint Programming for Combinatorial Optimization (pending)    
 Quentin Cappart et al. 2020. 
