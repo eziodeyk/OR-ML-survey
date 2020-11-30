@@ -385,7 +385,7 @@ two heuristic methods: DFS and best-found-first search.
 performance:    
 the model consistently performs well on all four datasets including MIK, Regions, Hybrid, CORLAT compared to other two cutting-edge open-source solvers --  SCIP and Gorubi.
 
-#### A Supervised Machine Learning Approach to Variable Branching in Branch-And-Bound    
+#### A Supervised Machine Learning Approach to Variable Branching in Branch-And-Bound     
 Alejandro Marcos Alvarez et al. 2014. Extremely Randomized Trees. Variable branching heuristic.       
 to imitate the strategy of strong branching with the machine learning model, namely extremely randomized trees, ***with a fast approximation... in an offline fashion*** to alleviate the computational cost in exhaustive branching.   
 **two-phased approach**: firstly generate the heuristic decision to be learned by machine learning agent, then train the model with generated dataset and examine its performance on standard benchmark problems.
@@ -474,7 +474,7 @@ Methodological details:
 Result: accuracy, precision, recall, and f1-score.    
 further work: analyse other benchmark datasets; identify the best learning scenario; define a custom loss function.
  
-#### Learning to run Heuristics in Tree Search
+#### Learning to run Heuristics in Tree Search    
 ***the use of machine learning for predicting whether a heuristic would succeed at a given node.***
 
 Two sides to constrained optimization problem:    
@@ -498,7 +498,7 @@ Run-When-Successful(RWS:a rule-of-thumb) --> ***provides theortical gaurantee un
   
 
 
-#### Learning When to Use a Decomposition
+#### Learning When to Use a Decomposition    
 Markus Kruber et al. 2017.    
 core idea: ***Given a MIP, a DW decomposition, and a time limit, will GCG using DW optimally solve faster than SCIP?***.     
 note: GCN -- ***an extention to well-established MIP solver SCIP***; ***several detectors look for possible DW reformulation of the original MIP model***;
@@ -513,12 +513,12 @@ Performance:
 > accuracy at up to 80 percents on subset of cases where GCG is selected by the model.    
 
 #### Learning to Branch (pending).       
-Maria-Florina Balcan et al. 2018. 
+Maria-Florina Balcan et al. 2018.     
 ***to design algorithms that learn the optimal parameter setting for the problem instance distribution at hand***.      
 
 #### Reinforcement Learning for Integer Programming: Learning to Cut.    
 Yunhao Tang et al. 2020. ICML. Branching and Cut.       
-> no work on focusing on pure selection of (Gomory) cuts has appeared in the literature.   
+> no work on focusing on pure selection of (Gomory) cuts has appeared in the literature.    
 
 **Contributions**:    
 * Efficient MDP formulation.    
