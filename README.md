@@ -475,40 +475,43 @@ Result: accuracy, precision, recall, and f1-score.
 further work: analyse other benchmark datasets; identify the best learning scenario; define a custom loss function.
  
 #### Learning to run Heuristics in Tree Search     
-Elias B. Khalil et al. 2017. IJCAI. 
+Elias B. Khalil et al. 2017. IJCAI.     
 ***the use of machine learning for predicting whether a heuristic would succeed at a given node.***     
 
-Two sides to constrained optimization problem:    
-* ***to find feasible solutions to the problem instances at hand*** (prime side);    
+Two sides to constrained optimization problem:     
+* ***to find feasible solutions to the problem instances at hand*** (prime side);     
 * ***to prove the optimality of the best feasible solution found*** (dual side).    
 core idea: ***combining primal heuristics with exact branch-and-bound search to improve solution finding***.    
 
-**Primal Integral** --> ***the quality of and the speed at which feasible solutions are found***.   
+**Primal Integral** --> ***the quality of and the speed at which feasible solutions are found***.    
 **Primal Integral Optimization** --> to find the subset of nodes resulting into minimum value of the primal integral    
 
-online setting (vs offline setting)
+online setting (vs offline setting).    
 
-Run-When-Successful(RWS:a rule-of-thumb) --> ***provides theortical gaurantee under a simplified setting***.   
-> dynamically decide whether to run the heuristic at a given node, based on the instance characteristics, node characteristics and status of the search.
+Run-When-Successful(RWS:a rule-of-thumb) --> ***provides theortical gaurantee under a simplified setting***.    
+> dynamically decide whether to run the heuristic at a given node, based on the instance characteristics, node characteristics and status of the search.    
 
-**node features**: 
+**node features**:     
 * global features    
-* depth features    
+* depth features     
 * node LP features    
 * scoring features for fractional variables    
   
 #### Learning When to Use a Decomposition    
 Markus Kruber et al. 2017.    
 core idea: ***Given a MIP, a DW decomposition, and a time limit, will GCG using DW optimally solve faster than SCIP?***.     
-note: GCN -- ***an extention to well-established MIP solver SCIP***; ***several detectors look for possible DW reformulation of the original MIP model***;
-The key factors: 1. the features catch relevant information; 2. training data represent the test data; 3. use a appropriate binary classifier (nearest neighbors; support vector machine with an RBF kernel, random forests).
+note: GCN -- ***an extention to well-established MIP solver SCIP***; ***several detectors look for possible DW reformulation of the original MIP model***;    
+The key factors: 
+* 1. the features catch relevant information; 
+* 2. training data represent the test data; 
+* 3. use a appropriate binary classifier (nearest neighbors; support vector machine with an RBF kernel, random forests).
 
-features for the binary classifier: instance statistics (decomposition-based statistics); detectors; time-remaining after detection.
+features for the binary classifier: instance statistics (decomposition-based statistics); detectors; time-remaining after detection.    
 
-comparison among four solvers: ***the standard branch-and-cut MIP solver SCIP; GCG that tries to detect a decomposition and perform a DW reformulation accordingly***; SL stands for the methodology proposed in the paper; OPT by alwayls selecting the best solver.
+comparison among four solvers: ***the standard branch-and-cut MIP solver SCIP; GCG that tries to detect a decomposition and perform a DW reformulation accordingly***; SL stands for the methodology proposed in the paper; OPT by alwayls selecting the best solver.    
 
 Performance:     
-> ***SL scheme with KNN catches roughly 2/3 of the improvement potential of OPT with respect to SCIP***.   
+> ***SL scheme with KNN catches roughly 2/3 of the improvement potential of OPT with respect to SCIP***.    
 > accuracy at up to 80 percents on subset of cases where GCG is selected by the model.    
 
 #### Learning to Branch (pending).       
