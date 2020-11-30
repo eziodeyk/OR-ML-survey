@@ -331,16 +331,16 @@ two networks: one for the policy and the other for the value.
 
 element embedding from Graph Convolutional Network and sequence embedding from Recurrent Neural Network -- embedding layer copes with two dimensional coordinates of nodes, and then transmits them into GCN layer, which ***"leverages node features with the additional edge feature representation"***; 
 
-  **Sequence Embedding Layers**   
+**Sequence Embedding Layers**   
 Two LSTM models (one in forward manner and one in backward) process the output from GCN model as features in **each** layer and colletively form ***unique node representations in a tour***;  
 
-  **Dual Encoding Mechanism**:  
+**Dual Encoding Mechanism**:  
 Each status S_t bar is in form of tuple consisting of the current route as well as the best solution ever encountered with minimum cost (NB: current solution may not follow the minimum-cost criteria).  
 
 **Decoders**: policy decoder and value decoder.   
 > decode these repre- sentations via a pointing attention mechanism.  
 
-  **policy decoder**: 
+**policy decoder**: 
 > "given a status...assigns high probabilities to moves that reduce the cost of a tour."   
 
 They use ***"individual softmax functions to represent each*** multiplicative term in the factorized probability of a k-opt move. The query vector at one step is reccursively obtained additionally with the sequence output. And ultimately a Pointing mechanism is  to ***predict a distribution over node outputs given encoded actions (nodes) and a state representation (query vector)***.   
@@ -421,7 +421,7 @@ The work ***focuses on learning variable selection strategy***. The model is fir
 
 The SVM model (or in general a linear classifier) follows the pairwise ranking formulation and train on one pair of nodes at a time. At each new node, the feature vector is computated for each variable and the node is branched on the variables with maximum score. The model outperforms other classical branching strategies in all three considered aspects: the number of unsolved instances, the number of nodes to solve the instances, and the total time to solve the instance.
 
-#### Online Learning for Strong Branching Approximation in Branch-and-Bound (in progress)     
+#### Online Learning for Strong Branching Approximation in Branch-and-Bound     
 Alejandro Marcos Alvarez et al. 2016. Variable Branching.    
 online learning mechanism: ***if for a given variable, the approximation variable is deemed reliable, then the score for that variable is computed thanks to the learned function. If the approximation is not reliable yet, the strong branching is used instead.***    
 * olb: online learning branching --> limitated number of learning samples per variable.    
