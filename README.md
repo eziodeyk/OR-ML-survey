@@ -537,7 +537,7 @@ Yunhao Tang et al. 2020. ICML. Branching and Cut.
 
 **The RL formulation of cutting plane**:    
 * the policy maps ***from any status to a distribution over actors***.
-* status space: tuples consisting of the feasible solution, c, the optimal solution the current LP, and the set of candidate Gomory's cuts.    
+* status space: tuples consisting of the feasible solution, c, the optimal solution, the current LP, and the set of candidate Gomory's cuts.    
 * action space: all possible Gomory's cutting planes;   
 * reward: ***the gap between objective values of consecutive LP solutions***.     
 * transition: ......
