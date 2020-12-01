@@ -370,6 +370,7 @@ He He et al. 2014. nips. linear classifier. search the branching tree.
 notes:    
 * ***non-problem-dependent learning: use imitation learning to automatically learn the heuristics***.   
 * ***aim to search for a good solution without a rigorous proof of optimality.***    
+* ***the sequential decisions made during B&B can be assimilated to a Markov decision process***(Maxime Gasse et al. 2019).      
 
 two policies:
 * ***node selection policy determines the priorities used......obtain...by learning a linear rank function***, the node with highest priority will be the object of the node pruning process.    
@@ -517,6 +518,17 @@ Performance:
 #### Learning to Branch (pending).       
 Maria-Florina Balcan et al. 2018.     
 ***to design algorithms that learn the optimal parameter setting for the problem instance distribution at hand***.      
+
+#### Exact Combinatorial Optimization with Graph Convolutional Neural Networks.    
+Maxime Gasse et al. 2019. nips. (set covering, combinatorial auction, capacitated facility location, maximum independent set).    
+> a new graph convolutional neural network model for learning branch-and-bound variable selection policies.     
+**methodology**:
+* imitation learning.   
+* status encoding:  one side of nodes represent the constraints in MILP; the other side of nodes refer to the variables in MILP; edges connect constraints to  conresponding variables.    
+* policy parameterization: ***in the form of two interleaved half-convolutions*** --> two successive passes, one from constraints to variables and the other in the opposite direction.     
+* prenorm layer: un-nonmalized convolutions lead to the ***weight initialization issue*** --> parameters are ***initialized with respectively the emperical mean and standard deviation of x on the training dataset, and fixed once and for all before the actual training***.    
+
+**performance**:    
 
 #### Reinforcement Learning for Integer Programming: Learning to Cut.    
 Yunhao Tang et al. 2020. ICML. Branching and Cut.       
