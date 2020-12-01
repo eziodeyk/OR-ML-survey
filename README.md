@@ -568,7 +568,8 @@ Deep reinforcement learning + constraint programming (branching strategy)
 three parts:     
 * learning phase (reinforcement learning),    
 * unifying pahse (dynamic programming),     
-* solving phase (constraint programming)    
+* solving phase (constraint programming)   
+
 **dynamic programming (DP)**:    
 **constraint programming (CP)**:    
 
