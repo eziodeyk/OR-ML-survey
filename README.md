@@ -563,9 +563,12 @@ Prateek Gupta et al. 2020. nips.
 
 
 #### Combining Reinforcement Learning and Constraint Programming for Combinatorial Optimization (pending)    
-Quentin Cappart et al. 2020. 
-Deep reinforcement learning + constraint programming (branching strategy)
-three parts: learning phase (reinforcement learning), unifying pahse (dynamic programming), solving phase (constraint programming)
+Quentin Cappart et al. 2020.     
+Deep reinforcement learning + constraint programming (branching strategy)     
+three parts:     
+* learning phase (reinforcement learning),    
+* unifying pahse (dynamic programming),     
+* solving phase (constraint programming)    
 **dynamic programming (DP)**:    
 **constraint programming (CP)**:    
 
