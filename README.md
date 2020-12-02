@@ -531,13 +531,13 @@ Maxime Gasse et al. 2019. nips. (set covering, combinatorial auction, capacitate
 * imitation learning.   
 * status encoding:  one side of nodes represent the constraints in MILP; the other side of nodes refer to the variables in MILP; edges connect constraints to  conresponding variables.    
 * policy parameterization: ***in the form of two interleaved half-convolutions*** --> two successive passes, one from constraints to variables and the other in the opposite direction.     
-* prenorm layer: un-nonmalized convolutions lead to the ***weight initialization issue*** --> parameters are ***initialized with respectively the emperical mean and standard deviation of x on the training dataset, and fixed once and for all before the actual training***.    
+* prenorm layer: un-normalized convolutions lead to the ***weight initialization issue*** --> parameters are ***initialized with respectively the emperical mean and standard deviation of x on the training dataset, and fixed once and for all before the actual training***.    
 
 **performance**:    
 
 #### Reinforcement Learning for Integer Programming: Learning to Cut.    
 Yunhao Tang et al. 2020. ICML. Branching and Cut.       
-> no work on focusing on pure selection of (Gomory) cuts has appeared in the literature.    
+> no work focusing on pure selection of (Gomory) cuts has appeared in the literature.    
 
 **Contributions**:    
 * Efficient MDP formulation.    
