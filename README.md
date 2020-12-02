@@ -519,6 +519,11 @@ Performance:
 Maria-Florina Balcan et al. 2018.     
 ***to design algorithms that learn the optimal parameter setting for the problem instance distribution at hand***.      
 
+#### Cuts, Primal Heuristics, and Learning to Branch for the Time-Dependent Traveling Salesman Problem.  
+Christoph Hansknecht et al. 2018. Time-dependent(TD) TSP.    
+> strong branching chooses the "best" possible branching variable with respect to a certain score, based on the LP-relaxations related to the current branch-and-bound node.    
+> use the lambdaMART algorithm to learn a ranking of branching candidates...not successful, since the running times get worse.     
+
 #### Exact Combinatorial Optimization with Graph Convolutional Neural Networks.    
 Maxime Gasse et al. 2019. nips. (set covering, combinatorial auction, capacitated facility location, maximum independent set).    
 > a new graph convolutional neural network model for learning branch-and-bound variable selection policies.     
