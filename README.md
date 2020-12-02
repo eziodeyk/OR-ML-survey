@@ -84,7 +84,7 @@ github: https://github.com/yining043/TSP-improve
 #### Learning Heuristics for the TSP by Policy Gradient
 Michel Deudon et al. 2018, CPAIOR, (TSP)  
 github: https://github.com/MichelDeudon/encode-attend-navigate   
-The authors proposed a model originated from the Pointer Net by Ballo(2016) soly based on attention mechanisms (self-attention, Vaswani 2017) instead of the LSTM architecture.
+The authors proposed a model originated from the Pointer Net by Ballo(2016) plus attention mechanisms (self-attention, Vaswani 2017) instead of the LSTM architecture.
 **The extended neural combinatorial optimization framework**:
 
 **Encoder**:  
